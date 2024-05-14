@@ -1,8 +1,102 @@
+/* GENERAL STYLING: */
+/* Styling that is independent of viewport size. This can be overwritten in the 
+   viewport-size specific styling! */
+
 /* Defines the general styling for the entire website */
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  grid-template-columns: 1fr 15em;
+  background-color: #272727;
+}
+
+/* Styling for the site wrapper */
+/* #site-wrapper {
+  background-color: #1d2023;
+} */
+
+/* Styling for the site header */
+#site-header {
   display: grid;
+  grid-template-rows: minmax(94vh, max-content) minmax(min-content, 6vh);
+  align-items: center;
+  justify-content: center;
+  background-color: #05afff;  /* TODO: PLACEHOLDER */
+  height: minmax(min-content, 100vh);
+}
+
+#scroll-indicator {
+  justify-content: center;
+  margin: auto;
+}
+
+#scroll-indicator p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 18pt;
+  font-weight: 700;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+
+/* source: https://codepen.io/nelledejones/pen/gOOPWrK */
+@keyframes bounce2 {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+
+.scroll-indicator-animation {
+  animation: bounce2 2s ease infinite;
+}
+
+#hero-content {
+  display: grid;
+  grid-template-rows: min-content auto;
+  justify-content: center;
+  width: 100%;
+}
+
+/* #hero-image {
+  max-width: 368px;
+  height: auto;
+  margin: 25px auto;
+  border-radius: 18px;
+  border: 2px solid #1d2023;
+} */
+
+#hero-title {
+  margin-top: 6vh;
+  margin-bottom: 0px;
+  font-weight: 800;
+  font-family: "Mochiy Pop One", sans-serif;
+  display: none;
+}
+
+.hero-title-split {
+  margin-top: 6vh;
+  margin-bottom: 0px;
+  font-weight: 800;
+  font-family: "Mochiy Pop One", sans-serif;
+  text-align: center;
+}
+
+#hero-tags {
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content max-content;
+  justify-content: center;
+}
+
+#hero-tags p {
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* The main grid for the site (contains the sections and ToC) */
+#site-grid {
+  display: grid;
+  grid-template-columns: auto 10em;
 }
 
 /* Defines the link color for the entire website */
@@ -10,40 +104,181 @@
   color: #05afff;
 }
 
-.App > .ToC-nav {
-  position: sticky;
-  top: 2rem;
-  align-self: start;
-}
-
-/* Defines styling for the <nav> in DynamicToC */
-.ToC-nav {
-  /* TODO: Finish to fit styling */
-}
-
-.ToC-nav li.active > a {
-  color: #05afff;
-  font-weight: 800;
-}
-
-.ToC-nav a {
-  text-decoration: none;
-  display: block;
-  color: white;
-  transition: all 50ms ease-in-out;
-}
-
-.ToC-nav a:hover, .ToC-nav a:focus {
-  color:#05afff
-}
-
+/* Removes default list styling for the ToC */
 .ToC-ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-section {  /* !DEBUG */
-  margin-bottom: 40rem;
+#site-grid > .ToC-nav {
+  position: sticky;
+  top: 2em;
+  align-self: start;
 }
 
+/* Defines styling for the <nav> in DynamicToC */
+.ToC-nav {
+  /* TODO: Finish to fit styling */
+  margin-top: 2rem;
+  margin-right: 50px;
+  padding-left: 0;
+  border-left: 1px solid #7e7e7e;
+}
+
+/* Styling for ToC items */
+.ToC-nav li {
+  margin-left: 1rem;
+}
+
+/* Styling for ToC items being visited */
+.ToC-nav li.active > a {
+  color: #05afff;
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
+/* Styling for ToC hyperlinks */
+.ToC-nav a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  transition: all 50ms ease-in-out;
+  padding: .125rem 0;
+  font-size: 14pt;
+}
+
+/* Styling for ToC hovered and focused items */
+.ToC-nav a:hover, .ToC-nav a:focus {
+  color:#05afff
+}
+
+/* Default styling for the sections of the site */
+.custom-section {
+  padding: 1px 20px 19px 20px;
+  margin: 20px;
+  background-color: #191919;
+  border-radius: 18px;
+  scroll-margin-top: 25px;  /* adds spacing to the auto-scroll position */
+  
+  padding-bottom: 30rem; /* !DEBUG */
+}
+
+/* Header styling for custom-sections */
+.custom-section h1 {
+  font-family: 'Lilita One', sans-serif;  /* https://fonts.google.com/share?selection.family=Lilita+One */
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Image Stack */
+/* Source: https://bricampgomez.com/blog/how-to-overlap-images-in-css/ */
+.image-stack {
+  max-width: auto;
+  display: grid;
+  grid-template-columns: repeat(24, 1em);
+  position: relative;
+  margin-left: 20px;
+}
+
+.image-stack img {
+  max-width: 256px;
+  height: auto;
+  border-radius: 18px;
+  border: 2px solid #191919;
+}
+
+/* Image Stack Images: */
+.image-stack-image-one {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.image-stack-image-two {
+  grid-column: 8 / -1;
+  grid-row: 1;
+  padding-top: calc(256px * 0.85);
+}
+.image-stack-image-three {
+  grid-column: 1 / span 12;
+  grid-row: 1;
+  padding-top: calc((341px + 256px) * 0.85);
+  padding-left: 1.5em;
+  z-index: 1;
+}
+
+#info-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+
+/* RESPONSIVE STYLING USING @media BREAKPOINTS: */
+/* source: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {  
+  /* #hero-image {
+    max-width: 196px;
+    margin: 25px auto;
+  } */
+
+
+  .hero-title-split {
+    font-size: 40pt;
+  }
+
+  /* TODO: Find solution for displaying #hero-content at this small resolution */
+}
+
+/* Small devices (portrait tablets and large phones, 601px and up) */
+@media only screen and (min-width: 651px) {
+  .hero-title-split {
+    font-size: 40pt;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hero-title-split {
+    font-size: 60pt;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .hero-title-split {
+    font-size: 60pt;
+    display: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  #hero-title {
+    display: block;
+    font-size: 60pt;
+  };
+}
+
+/* Even larger devices (laptops and desktops, 1250px and up) */
+@media only screen and (min-width: 1275px) {  
+  #hero-title {
+    font-size: 78pt;
+  }
+}
+
+/* Very large devices (laptops/desktops), 1850px and up */
+@media only screen and (min-width: 1850px) {
+  /* #site-wrapper {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto
+  } */
+
+  #hero-title {
+    font-size: 98pt;
+  }
+}

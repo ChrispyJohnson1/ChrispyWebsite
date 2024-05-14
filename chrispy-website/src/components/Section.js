@@ -3,7 +3,7 @@
 export default function Section({s_id, s_name}) {
     return (
         <section id = {s_id} className = "custom-section">
-            <h1>{s_name}</h1>
+            <h1>{s_name + ":"}</h1>
         </section>
     )
 }
