@@ -76,8 +76,22 @@ function App() {
               <h1>{'Who:'}</h1>
               <div id = 'who-container'>
                 <ImageStack></ImageStack>
-                <div className = ''>
-                  <p>I am a 21 year old Computer Science Graduate</p>
+                <div id = 'who-captions'>
+                  <div id = 'who-1' className = 'who-caption'>
+                    <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about all things technology and IT.</p>
+                  </div>
+
+                  <div id = 'who-2'  className = 'who-caption'>
+                    <p>I love helping people, especially with their technology issues. So much so, that I was jokingly known as the "IT Guy" in school.</p>
+                  </div>
+
+                  <div id = 'who-3'  className = 'who-caption'>
+                    <p>Ever since I was a kid, I have always loved technology. My dad would bring home old computers that I would spend hours tinkering with and trying to fix.</p>
+                  </div>
+
+                  <div id = 'who-4'  className = 'who-caption'>
+                    <p>That means I have experience building computers, as well as maintaining them. I am capable of replacing broken components or upgrading computers whenever needed.</p>
+                  </div>
                 </div>
               </div>
             </section>

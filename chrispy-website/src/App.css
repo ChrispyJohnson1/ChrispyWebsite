@@ -174,15 +174,16 @@
 /* Image Stack */
 /* Source: https://bricampgomez.com/blog/how-to-overlap-images-in-css/ */
 .image-stack {
-  max-width: auto;
   display: grid;
   grid-template-columns: repeat(24, 1em);
-  position: relative;
-  margin-left: 20px;
+  justify-content: center;
+  align-content: center;
+  width: fit-content;
+  margin-right: 150px;
 }
 
 .image-stack img {
-  max-width: 256px;
+  max-width: 300px;
   height: auto;
   border-radius: 18px;
   border: 2px solid #191919;
@@ -196,29 +197,34 @@
 .image-stack-image-two {
   grid-column: 8 / -1;
   grid-row: 1;
-  padding-top: calc(256px * 0.85);
+  padding-top: calc(300px * 0.85);
 }
 .image-stack-image-three {
   grid-column: 1 / span 12;
   grid-row: 1;
-  padding-top: calc((341px + 256px) * 0.85);
+  padding-top: calc((403px + 300px) * 0.85);
   padding-left: 1.5em;
   z-index: 1;
 }
 
-#who {
-  align-content: center;
-  justify-content: center;;
-}
-
 #who-container {
-  width: fit-content;
   display: grid;
   grid-template-columns: min-content auto;
-  margin-left: auto;
-  margin-right: auto;
   justify-content: center;
+  align-content: center;
 }
+
+#who-captions {
+  max-width: 30vw;
+  align-content: center;
+}
+
+.who-caption {
+  padding: 10px 15px;
+  font-size: 16pt;  /* TODO: SCALE THIS */
+  font-weight: 600;
+}
+
 
 
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: */
