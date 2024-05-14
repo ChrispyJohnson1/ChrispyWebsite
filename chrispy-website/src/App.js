@@ -30,14 +30,14 @@ function App() {
     const ScrollIntersectionObserver = new IntersectionObserver(Sections => {
         Sections.forEach(Section => {
             if (Section.intersectionRatio > 0) {
-                document.querySelector(`#scroll-indicator`).classList.remove("scroll-indicator-animation");
+                document.querySelector(`#scroll-indicator`).classList.remove('scroll-indicator-animation');
             } else {
-              document.querySelector(`#scroll-indicator`).classList.add("scroll-indicator-animation");
+              document.querySelector(`#scroll-indicator`).classList.add('scroll-indicator-animation');
             }
         });
     });
     
-    ScrollIntersectionObserver.observe(document.querySelector('#info'));
+    ScrollIntersectionObserver.observe(document.querySelector('#who'));
 });
 
   return (
@@ -65,18 +65,20 @@ function App() {
               <p>IT Specialist</p>
             </div>
           </div>
-          <div id = 'scroll-indicator' className = "scroll-indicator-animation">
+          <div id = 'scroll-indicator' className = 'scroll-indicator-animation'>
             <p>Scroll</p>
             <p>↓</p>
           </div>
         </div>
         <div id = 'site-grid'>
           <div>                                                                 { /* Sections of Site */}
-            <section id = 'info' className = 'custom-section'>
-              <h1>{'Information:'}</h1>
-              <div id = 'info-container'>
+            <section id = 'who' className = 'custom-section'>
+              <h1>{'Who:'}</h1>
+              <div id = 'who-container'>
                 <ImageStack></ImageStack>
-                <p>Hi!</p>
+                <div className = ''>
+                  <p>I am a 21 year old Computer Science Graduate</p>
+                </div>
               </div>
             </section>
 
@@ -93,7 +95,7 @@ function App() {
             </section>
           </div>
           
-          <DynamicToC SectionData={SectionData}></DynamicToC>                   { /* Table of Contents */ }
+          {/* <DynamicToC SectionData={SectionData}></DynamicToC> */}                  { /* Table of Contents */ } 
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
 

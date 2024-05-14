@@ -34,7 +34,7 @@
   text-align: center;
   font-size: 18pt;
   font-weight: 700;
-  font-family: "Mochiy Pop One", sans-serif;
+  font-family: 'Mochiy Pop One', sans-serif;
 }
 
 /* source: https://codepen.io/nelledejones/pen/gOOPWrK */
@@ -67,7 +67,7 @@
   margin-top: 6vh;
   margin-bottom: 0px;
   font-weight: 800;
-  font-family: "Mochiy Pop One", sans-serif;
+  font-family: 'Mochiy Pop One', sans-serif;
   display: none;
 }
 
@@ -75,7 +75,7 @@
   margin-top: 6vh;
   margin-bottom: 0px;
   font-weight: 800;
-  font-family: "Mochiy Pop One", sans-serif;
+  font-family: 'Mochiy Pop One', sans-serif;
   text-align: center;
 }
 
@@ -94,10 +94,10 @@
 }
 
 /* The main grid for the site (contains the sections and ToC) */
-#site-grid {
+/* #site-grid {
   display: grid;
   grid-template-columns: auto 10em;
-}
+} */
 
 /* Defines the link color for the entire website */
 .App-link {
@@ -155,13 +155,11 @@
 
 /* Default styling for the sections of the site */
 .custom-section {
-  padding: 1px 20px 19px 20px;
+  padding: 20px;
   margin: 20px;
   background-color: #191919;
   border-radius: 18px;
   scroll-margin-top: 25px;  /* adds spacing to the auto-scroll position */
-  
-  padding-bottom: 30rem; /* !DEBUG */
 }
 
 /* Header styling for custom-sections */
@@ -169,6 +167,8 @@
   font-family: 'Lilita One', sans-serif;  /* https://fonts.google.com/share?selection.family=Lilita+One */
   font-size: 40px;
   font-weight: 700;
+  margin: 0px;
+  padding: 10px;
 }
 
 /* Image Stack */
@@ -206,10 +206,15 @@
   z-index: 1;
 }
 
-#info-container {
+#who {
+  align-content: center;
+  justify-content: center;;
+}
+
+#who-container {
   width: fit-content;
   display: grid;
-  grid-template-columns: min-content min-content;
+  grid-template-columns: min-content auto;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;

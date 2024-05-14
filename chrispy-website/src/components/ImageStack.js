@@ -7,19 +7,19 @@ import professional_photo from '../resources/professional_photo.jpg'
 // source: https://bricampgomez.com/blog/how-to-overlap-images-in-css/
 export default function ImageStack({ImageInfo}) {
     return (
-        <div className = "image-stack">
+        <div className = 'image-stack'>
             {/* Image One: School */}
-            <div className = "image-stack-image-one">
+            <div className = 'image-stack-image-one'>
                 <img src={personal_photo}></img>
             </div>
 
             {/* Image Two: Tech */}
-            <div className = "image-stack-image-two">
+            <div className = 'image-stack-image-two'>
                 <img src={grad_photo}></img>
             </div>
 
             {/* Image Three: Personal/Fun */}
-            <div className = "image-stack-image-three">
+            <div className = 'image-stack-image-three'>
                 <img src={professional_photo}></img>
             </div>
 
