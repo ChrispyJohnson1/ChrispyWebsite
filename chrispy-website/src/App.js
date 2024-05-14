@@ -96,6 +96,24 @@ function App() {
               </div>
             </section>
 
+            <section id = 'strengths' className = 'custom-section'>
+              <h1>{'Strengths:'}</h1>
+              <div id = 'strengths-grid'>
+                <div className = 'strength-card'>
+                  <h1>1. Tech-lover</h1>
+                  <p>I'm very passionate about technology and I'm well-versed in many aspects of it.</p>
+                </div>
+                <div className = 'strength-card'>
+                  <h1>2. Fast Learner</h1>
+                  <p>With tech, I learn very quickly. Once I have experience, I can pick it up with ease.</p>
+                </div>
+                <div className = 'strength-card'>
+                  <h1>3. Highly Organized</h1>
+                  <p>University taught be to be very organized. I use calendars and reminders to stay on top of any situation.</p>
+                </div>
+              </div>
+            </section>
+
             <section id = 'qualifications' className = 'custom-section'>
               <h1>{'Qualifications:'}</h1>
             </section>
