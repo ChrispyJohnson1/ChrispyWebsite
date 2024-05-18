@@ -251,6 +251,126 @@
   font-weight: 600pt
 }
 
+#location-grid {
+  display: grid;
+  grid-template-columns: min-content auto;
+  justify-content: center;
+  align-content: center;
+}
+
+#location-grid iframe {
+  width: 600px;
+  height: 400px;
+  border-radius: 18px;
+  border: none;
+  margin-right: 20px;
+}
+
+#location-captions {
+  margin: auto;
+  margin-left: 20px;
+  max-width: 25vw;
+  align-content: center;
+}
+
+.location-caption {
+  padding: 2px 15px;
+  font-size: 16pt;  /* TODO: SCALE THIS */
+  font-weight: 600;
+}
+
+/* #skills-qualifs-grid {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: min-content min-content min-content;
+  justify-content: center;
+  align-content: center;
+} */
+
+#skills-qualifs-grid {
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/4)), 1fr));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills-qualifs-card {
+  display: grid;
+  align-content: center;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 18px;
+  background-color: #05afff;  
+  contain: layout;
+  /* overflow: hidden; */
+  /* position: relative; */
+}
+
+.skills-qualifs-card h1 {
+  max-width: 18em;
+  font-size: 20pt;
+  font-weight: 700;
+  margin: auto;
+  text-align: center;
+}
+
+.skills-qualifs-card button {
+  display: none;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  border: 0;
+  background: none;
+  color: white;
+  font-size: 20pt;
+  padding: 0.75em;
+}
+
+.skills-qualifs-card button:hover {
+  transform: scale(1.1);
+  color: red;
+  font-weight: 600;
+}
+
+.skills-qualifs-card:not(.featured):hover {
+  transform: scale(1.033);
+}
+
+.skills-qualifs-card.featured {
+  order: -1;
+  grid-column: 1 / -1;
+  font-size: 133%;
+}
+
+.skills-qualifs-card.featured div {
+  display: grid;
+  grid-template-columns: 33.3% 66.6%;
+  justify-content: center;
+  align-content: center;
+}
+
+.skills-qualifs-card.featured button {
+  display: block;
+}
+
+.skills-qualifs-card.featured .SQContent {
+  display: block;
+}
+
+.skills-qualifs-card.featured h1 {
+  font-size: 25pt;
+  max-width: none;
+}
+
+.SQContent {
+  display: none;
+  font-size: 18pt;
+  margin: auto 2em;
+}
 
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: */
 /* source: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */

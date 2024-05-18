@@ -1,7 +1,7 @@
 import './App.css';
 import DynamicToC from './components/DynamicTOC';
 import ImageStack from './components/ImageStack';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 function App() {
 
@@ -26,6 +26,7 @@ function App() {
     }
   ]
 
+  // Used for the bouncing scroll indicator in the "hero" section
   useEffect(() => {
     const ScrollIntersectionObserver = new IntersectionObserver(Sections => {
         Sections.forEach(Section => {
@@ -38,7 +39,35 @@ function App() {
     });
     
     ScrollIntersectionObserver.observe(document.querySelector('#who'));
-});
+  });
+
+  // Used for the expanding card grid in the Skills and Qualifications section
+  // source: https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/
+  useEffect(() => {
+    const SQcards = document.querySelectorAll('.skills-qualifs-card');
+    const closeButtons = document.querySelectorAll('.SQCloseButton');
+  
+    SQcards.forEach((SQcard) => {
+      SQcard.addEventListener("click", () => {
+        SQcards.forEach((SQcard) => {
+          SQcard.classList.remove('featured');
+        });
+    
+        SQcard.classList.add('featured');
+      });
+    });
+  
+    closeButtons.forEach((closeButton) => {
+      closeButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+  
+        SQcards.forEach((SQcard) => {
+          SQcard.classList.remove('featured');
+        });
+      });
+    });
+  });
+
 
   return (
     <div className='App'>                                                       { /* Main React App */ }
@@ -114,12 +143,69 @@ function App() {
               </div>
             </section>
 
-            <section id = 'qualifications' className = 'custom-section'>
-              <h1>{'Qualifications:'}</h1>
+            <section id = 'location' className = 'custom-section'>
+              <h1>{'Location:'}</h1>
+              <div id = 'location-grid'>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca" title='Acton Map' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id = 'location-captions'>
+                  <div className = 'location-caption'>
+                    <p>I live in Acton, Ontario, which is only a 20-25 minute drive from Guelph and Milton.</p>
+                  </div>
+
+                  <div className = 'location-caption'>
+                    <p>I have my G licence, a car, and I'm willing to drive long distances if required.</p>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section id = 'experience' className = 'custom-section'>
-              <h1>{'Experience:'}</h1>
+            <section id = 'skills-qualifications' className = 'custom-section'>
+              <h1>{'Skills & Qualifications:'}</h1>
+              <div id = 'skills-qualifs-grid'>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u>Qualification:</u> Bachelor of Science</h1>
+                    <div className = 'SQContent'>
+                      <p>I achieved my Bachelor of Science (Honors) in Computer Science from Ontario Tech University. It gave me a much greater understanding of how to work with many aspects of technology, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u>Skill:</u> Programming</h1>
+                    <div className = 'SQContent'>
+                      <p>I have experience in many different programming languages, such as: </p>
+                      <ul>
+                        <li>C/C++</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>Kotlin</li>
+                        <li>HTML + CSS + JavaScript</li>
+                        <li>R</li>
+                        <li>SQL</li>
+                      </ul>
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u>Skill:</u> Data Science</h1>
+                    <div className = 'SQContent'>
+                      <p>Hello, how are you?</p>
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id = 'experience-projects' className = 'custom-section'>
+              <h1>{'Projects & Experience:'}</h1>
             </section>
 
             <section id = 'resume' className = 'custom-section'>
@@ -135,6 +221,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
