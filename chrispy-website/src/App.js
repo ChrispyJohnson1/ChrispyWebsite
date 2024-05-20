@@ -165,7 +165,7 @@ function App() {
 
                 <div className = 'skills-qualifs-card'>
                   <div>
-                    <h1><u>Qualification:</u> Bachelor of Science</h1>
+                    <h1><u>Qualification:</u> Bachelor of Science (CS)</h1>
                     <div className = 'SQContent'>
                       <p>I achieved my Bachelor of Science (Honors) in Computer Science from Ontario Tech University. It gave me a much greater understanding of how to work with many aspects of technology, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                     </div>
@@ -177,16 +177,22 @@ function App() {
                   <div>
                     <h1><u>Skill:</u> Programming</h1>
                     <div className = 'SQContent'>
-                      <p>I have experience in many different programming languages, such as: </p>
-                      <ul>
-                        <li>C/C++</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>Kotlin</li>
-                        <li>HTML + CSS + JavaScript</li>
-                        <li>R</li>
-                        <li>SQL</li>
-                      </ul>
+                      I have experience in many different programming languages, such as: 
+                      <div id = "programming-languages">
+                        <ul>
+                          <li>C/C++</li>
+                          <li>Python</li>
+                          <li>Java</li>
+                          <li>Kotlin</li>
+                        </ul>
+                        <ul>
+                          <li>HTML + CSS + JavaScript</li>
+                          <li>R</li>
+                          <li>SQL</li>
+                        </ul>
+                      </div>
+
+                      <p>Experience with these langauges, as well as foundational programming constructs, allows me to work on many different projects and codebases.</p>
                     </div>
                     <button className = 'SQCloseButton'>✕</button>
                   </div>
@@ -196,7 +202,39 @@ function App() {
                   <div>
                     <h1><u>Skill:</u> Data Science</h1>
                     <div className = 'SQContent'>
-                      <p>Hello, how are you?</p>
+                      <p>My knowledge of data science techniques and algorithms allows me to efficiently gather and analyze data, in order to gain a better understanding of patterns and trends.</p>
+
+                      <p>I also have experience in data visualization, specifically with R. I can create insightful, ethical, and visually appealing graphics that can be used for data analysis.</p>
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u>Skill:</u> Teamwork</h1>
+                    <div className = 'SQContent'>
+                      <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role, and coordinate teams to meet deadlines and work together in a productive way.</p>
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u></u></h1>
+                    <div className = 'SQContent'>
+
+                    </div>
+                    <button className = 'SQCloseButton'>✕</button>
+                  </div>
+                </div>
+
+                <div className = 'skills-qualifs-card'>
+                  <div>
+                    <h1><u></u></h1>
+                    <div className = 'SQContent'>
+
                     </div>
                     <button className = 'SQCloseButton'>✕</button>
                   </div>

@@ -16,11 +16,10 @@
 /* Styling for the site header */
 #site-header {
   display: grid;
-  grid-template-rows: minmax(94vh, max-content) minmax(min-content, 6vh);
+  grid-template-rows: minmax(90vh, max-content) minmax(min-content, 10vh);
   align-items: center;
   justify-content: center;
   background-color: #05afff;  /* TODO: PLACEHOLDER */
-  height: minmax(min-content, 100vh);
 }
 
 #scroll-indicator {
@@ -279,21 +278,12 @@
   font-weight: 600;
 }
 
-/* #skills-qualifs-grid {
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: min-content min-content min-content;
-  justify-content: center;
-  align-content: center;
-} */
-
 #skills-qualifs-grid {
   max-width: 90%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/4)), 1fr));
+  grid-auto-flow: row dense;
+  gap: auto;
   margin-left: auto;
   margin-right: auto;
 }
@@ -306,8 +296,7 @@
   border-radius: 18px;
   background-color: #05afff;  
   contain: layout;
-  /* overflow: hidden; */
-  /* position: relative; */
+  width: auto;
 }
 
 .skills-qualifs-card h1 {
@@ -338,6 +327,7 @@
 
 .skills-qualifs-card:not(.featured):hover {
   transform: scale(1.033);
+  cursor: pointer;
 }
 
 .skills-qualifs-card.featured {
@@ -355,8 +345,10 @@
 
 .skills-qualifs-card.featured button {
   display: block;
+  cursor: pointer;
 }
 
+/* When featured, the content is revealed */
 .skills-qualifs-card.featured .SQContent {
   display: block;
 }
@@ -369,7 +361,15 @@
 .SQContent {
   display: none;
   font-size: 18pt;
-  margin: auto 2em;
+  margin: auto 2em
+}
+
+#programming-languages {
+  margin-top: 15px;
+}
+
+#programming-languages ul {
+  margin: 0px;
 }
 
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: */
