@@ -1,7 +1,9 @@
 import './App.css';
 import DynamicToC from './components/DynamicTOC';
 import ImageStack from './components/ImageStack';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import $ from 'jquery';
+import GitHubIcon from './resources/github-mark-white.png'
 
 function App() {
 
@@ -26,12 +28,12 @@ function App() {
     }
   ]
 
-  // Used for the bouncing scroll indicator in the "hero" section
+  // IntersectionObserver for the bouncing scroll indicator in the "hero" section
   useEffect(() => {
     const ScrollIntersectionObserver = new IntersectionObserver(Sections => {
         Sections.forEach(Section => {
             if (Section.intersectionRatio > 0) {
-                document.querySelector(`#scroll-indicator`).classList.remove('scroll-indicator-animation');
+              document.querySelector(`#scroll-indicator`).classList.remove('scroll-indicator-animation');
             } else {
               document.querySelector(`#scroll-indicator`).classList.add('scroll-indicator-animation');
             }
@@ -39,16 +41,17 @@ function App() {
     });
     
     ScrollIntersectionObserver.observe(document.querySelector('#who'));
-  });
+  }, []);
 
-  // Used for the expanding card grid in the Skills and Qualifications section
+  // Event Listener for the expanding card grid in the Skills and Qualifications section
   // source: https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/
   useEffect(() => {
-    const SQcards = document.querySelectorAll('.skills-qualifs-card');
-    const closeButtons = document.querySelectorAll('.SQCloseButton');
+    const SQcards = document.querySelectorAll('.skills-qualifications-card');
+    const SQCloseButtons = document.querySelectorAll('.SQ-close-button');
   
+    // add event listeners to the Skill/Qualification cards (onClick)
     SQcards.forEach((SQcard) => {
-      SQcard.addEventListener("click", () => {
+      SQcard.addEventListener('click', () => {
         SQcards.forEach((SQcard) => {
           SQcard.classList.remove('featured');
         });
@@ -57,8 +60,9 @@ function App() {
       });
     });
   
-    closeButtons.forEach((closeButton) => {
-      closeButton.addEventListener("click", (event) => {
+    // add event listeners to the close buttons for the Skill/Qualification cards (onClick)
+    SQCloseButtons.forEach((SQCloseButton) => {
+      SQCloseButton.addEventListener('click', (event) => {
         event.stopPropagation();
   
         SQcards.forEach((SQcard) => {
@@ -66,14 +70,101 @@ function App() {
         });
       });
     });
-  });
+  }, []);
+
+  // Event Listener for displaying Project and Experience information in the 'EP-viewer' div
+  useEffect(() => {
+    const EPItems = document.querySelectorAll('.EP-item');  // the content shown in the 'EP-list' section
+    const EPCloseButton = document.querySelector('#EP-close-button');
+
+    // add event listeners to the EP list items (onClick)
+    EPItems.forEach((EPItem) => {
+      EPItem.addEventListener('click', (event) => {
+        // select the heading and paragraph text from the current EP Item
+        var EPItem_h1 = event.currentTarget.querySelector('h1').textContent            /* header element */
+        var EPItem_body_items = event.currentTarget.querySelector('.EP-item-body').childNodes  /* elements */
+        
+        /* project repo text */
+        var project_repo_text;
+        event.currentTarget.querySelector('.PRT') != null ? project_repo_text = event.currentTarget.querySelector('.PRT').textContent : project_repo_text = null;
+
+        /* project repo link */
+        var project_repo_link;
+        event.currentTarget.querySelector('.PRL') != null ? project_repo_link = event.currentTarget.querySelector('.PRL').textContent : project_repo_link = null;
+
+        // removed "featured" class from all EP-items
+        EPItems.forEach((EPItem) => {
+          EPItem.classList.remove('featured');
+        });
+
+        // add the 'featured' class to the EP-item
+        var EPItem_id = event.currentTarget.getAttribute('id')
+        $('#' + EPItem_id).addClass('featured')
+        
+        // remove the title, text, and repo button from EP-viewer if they exist
+        $('#EP-viewer-title').remove();
+        $('#EP-viewer-body').remove();
+        $('.repo-button').remove();
+
+        // hide the placeholder
+        $('#EP-viewer-placeholder').attr('class', 'hide-EPV-placeholder');
+        
+        // change the vertical alignment within the EP-viewer container
+        // (for stylistic purposes)
+        $('#EP-viewer').css('align-content', 'unset');
+
+        // append the title and content to the EP-viewer
+        $('#EP-viewer').append("<h1 id = 'EP-viewer-title'><u>" + EPItem_h1 + ":</u></h1>");
+        $('#EP-viewer').append("<div id = 'EP-viewer-body'></div>") /* Add the body, then append to it */
+        EPItem_body_items.forEach((EPItem_body_item) => {
+          /* MUST be cloned, otherwise the element is removed when it is appended! */
+          $('#EP-viewer-body').append(EPItem_body_item.cloneNode(true))
+        });
+
+        // if the text and link are included in the EP-item, render a link to the repository
+        // in the EP-viewer
+        if (project_repo_text != null && project_repo_link != null) {
+          console.log(project_repo_text)
+          $('#EP-viewer').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "'>" + project_repo_text + "</div></a>");
+        }
+
+        // make the close button visible
+        $('#EP-close-button').css({'display': 'block', 'cursor': 'pointer'})
+      })
+    });
+
+    EPCloseButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      // removed "featured" class from all EP-items
+      EPItems.forEach((EPItem) => {
+        EPItem.classList.remove('featured');
+      });
+      
+      // remove the title, text abd repo button from EP-viewer
+      $('#EP-viewer-title').remove();
+      $('#EP-viewer-body').remove();
+      $('.repo-button').remove();
+
+      // set the vertical alignment to center content
+      $('#EP-viewer').removeAttr('style');
+
+      // re-enable the placeholder
+      $('#EP-viewer-placeholder').removeClass('hide-EPV-placeholder');
+
+      // make the close button invisible again
+      $('#EP-close-button').removeAttr('style');
+    });
+
+
+    // add event listeners to the 
+  }, []);
 
 
   return (
     <div className='App'>                                                       { /* Main React App */ }
       <div id = 'site-wrapper'>                                                 { /* Contains the site content */}
         <div id = 'site-header'>                                                { /* Site Header */ }
-          {/* <img id = 'hero-image' src='https://avatars.githubusercontent.com/u/72899896?v=4' alt='ChrispyJohnson PFP'></img>  !PLACEHOLDER  */}
           <div id = 'hero-content'>
 
             {/* This is used when the viewport width is sufficiently wide */}
@@ -146,7 +237,7 @@ function App() {
             <section id = 'location' className = 'custom-section'>
               <h1>{'Location:'}</h1>
               <div id = 'location-grid'>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca" title='Acton Map' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
                 <div id = 'location-captions'>
                   <div className = 'location-caption'>
                     <p>I live in Acton, Ontario, which is only a 20-25 minute drive from Guelph and Milton.</p>
@@ -163,22 +254,22 @@ function App() {
               <h1>{'Skills & Qualifications:'}</h1>
               <div id = 'skills-qualifs-grid'>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
                     <h1><u>Qualification:</u> Bachelor of Science (CS)</h1>
                     <div className = 'SQContent'>
                       <p>I achieved my Bachelor of Science (Honors) in Computer Science from Ontario Tech University. It gave me a much greater understanding of how to work with many aspects of technology, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
                     <h1><u>Skill:</u> Programming</h1>
                     <div className = 'SQContent'>
                       I have experience in many different programming languages, such as: 
-                      <div id = "programming-languages">
+                      <div id = 'programming-languages'>
                         <ul>
                           <li>C/C++</li>
                           <li>Python</li>
@@ -194,11 +285,23 @@ function App() {
 
                       <p>Experience with these langauges, as well as foundational programming constructs, allows me to work on many different projects and codebases.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
+                  </div>
+                </div>
+                
+                <div className = 'skills-qualifications-card'>
+                  <div>
+                    <h1><u>Skill:</u> Building and Maintaining Computers</h1>
+                    <div className = 'SQContent'>
+                      <p>I have experience working on and building tower computers. I've built my own personal computer, as well as worked on others computers for fun. I'm comfortable replacing any component in a tower, such as RAM, GPUs, disk drives, and more.</p>
+
+                      <p>I have also worked on laptops, having done various levels of maintenance on my own personal laptops (from replacing RAM and SSDs to removing and replacing the cooler).</p>
+                    </div>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
                     <h1><u>Skill:</u> Data Science</h1>
                     <div className = 'SQContent'>
@@ -206,37 +309,41 @@ function App() {
 
                       <p>I also have experience in data visualization, specifically with R. I can create insightful, ethical, and visually appealing graphics that can be used for data analysis.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
-                    <h1><u>Skill:</u> Teamwork</h1>
+                    <h1><u>Skill:</u> Teamwork and Leadership</h1>
                     <div className = 'SQContent'>
-                      <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role, and coordinate teams to meet deadlines and work together in a productive way.</p>
+                      <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role and coordinate teams to meet deadlines and work together in a organized and productive way.</p>
+
+                      <p>It is my intention to bring those same team-oriented and leadership qualities to any position I hold.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
-                    <h1><u></u></h1>
+                    <h1><u>Skill:</u> Operating Systems</h1>
                     <div className = 'SQContent'>
+                      <p>I have extensive experience with Windows, from basic configuration like configuring networks, updating drivers, installing software etc., to more advanced troubleshooting techniques like using the Windows Event Viewer or Task Scheduler.</p>
 
+                      <p>I also have experience with Linux, and I'm able to use it to a reasonable effectiveness.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
 
-                <div className = 'skills-qualifs-card'>
+                <div className = 'skills-qualifications-card'>
                   <div>
-                    <h1><u></u></h1>
+                    <h1><u>Skill:</u> Virtualization</h1>
                     <div className = 'SQContent'>
-
+                      <p>I have experience with virtualization software like VMWare and VirtualBox, and have some experience with Docker, and can effectively work with all three to configure and work with VMs/Containers.</p>
                     </div>
-                    <button className = 'SQCloseButton'>✕</button>
+                    <button className = 'SQ-close-button'>✕</button>
                   </div>
                 </div>
               </div>
@@ -244,6 +351,47 @@ function App() {
 
             <section id = 'experience-projects' className = 'custom-section'>
               <h1>{'Projects & Experience:'}</h1>
+              <div id = 'EP-grid'>
+                <div id = 'EP-list'>
+                  <div className = 'EP-item' id = 'work-experience'>
+                    <h1>Work Experience</h1>
+                    <div className = 'EP-item-body'>
+                      <p>I have some work experience from a summer job I held between university semesters. While this experience may not be fully applicable to the position I'm applying for, I feel that it has prepared me in three key ways:</p>
+                      <ul>
+                        <li><b><u>Accountability</u></b>: it helped me learn to be accountable for my work, and take responsibility for my successes <u>and</u> my failures.</li>
+                        <li><b><u>Teamwork</u></b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
+                        <li><b><u>Preparedness</u></b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment. An example of this would be how important punctuality is in a work setting.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className = 'EP-item' id = 'chrispywebsite'>
+                    <h1>ChrispyWebsite</h1>
+                    <div className = 'EP-item-body'>
+                      <p>The website you're reading right now was programmed entirely by <b>me</b> -- with help from the internet, of course.</p>
+
+                      <p> I decided that instead of just handing in a PDF resume, or using some website template, I should create my own. This is the first site that I've ever made, besides a few smaller school projects.</p>
+
+                      <p>I figured this would be a good showcase of my programming skills. If you want to view the source code, it's available in the GitHub repository linked below.</p>
+                    </div>
+                    <p className = 'PRT'>ChrispyWebsite GitHub</p>
+                    <p className = 'PRL'>https://github.com/ChrispyJohnson1/ChrispyWebsite</p>
+                  </div>
+
+                  {/* <div className = 'EP-item' id = ''>
+                    <h1></h1>
+                    <div className = 'EP-item-body'>
+                      
+                    </div>
+                  </div> */}
+                </div>
+                <div id = 'EP-viewer'>  {/* This will be filled with the EventViewer on the EP-items */}
+                  <button id = 'EP-close-button'>✕</button>
+                  <p id = 'EP-viewer-placeholder'>
+                    Interact with an item for more information!
+                  </p>
+                </div>
+              </div>
             </section>
 
             <section id = 'resume' className = 'custom-section'>
