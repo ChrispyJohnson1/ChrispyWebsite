@@ -4,6 +4,9 @@ import ImageStack from './components/ImageStack';
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import GitHubIcon from './resources/github-mark-white.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 function App() {
 
@@ -11,20 +14,28 @@ function App() {
   // TODO: Automate this!
   const SectionData = [
     {
-      s_id: 'info',
-      s_name: 'Information'
+      s_id: 'who',
+      s_name: 'Who?'
     },
     {
-      s_id: 'qualifications',
-      s_name: 'Qualifications'
+      s_id: 'strengths',
+      s_name: 'My Strengths'
     },
     {
-      s_id: 'experience',
-      s_name: 'Experience'
+      s_id: 'location',
+      s_name: 'Location'
+    },
+    {
+      s_id: 'skills-qualifications',
+      s_name: 'My Skills & Qualifications'
+    },
+    {
+      s_id: 'experience-projects',
+      s_name: 'My Work'
     },
     {
       s_id: 'resume',
-      s_name: 'Resume'
+      s_name: 'Resume & Socials'
     }
   ]
 
@@ -114,7 +125,7 @@ function App() {
         $('#EP-viewer').css('align-content', 'unset');
 
         // append the title and content to the EP-viewer
-        $('#EP-viewer').append("<h1 id = 'EP-viewer-title'><u>" + EPItem_h1 + ":</u></h1>");
+        $('#EP-viewer').append("<h1 id = 'EP-viewer-title'>" + EPItem_h1 + ":</h1>");
         $('#EP-viewer').append("<div id = 'EP-viewer-body'></div>") /* Add the body, then append to it */
         EPItem_body_items.forEach((EPItem_body_item) => {
           /* MUST be cloned, otherwise the element is removed when it is appended! */
@@ -193,7 +204,7 @@ function App() {
         <div id = 'site-grid'>
           <div>                                                                 { /* Sections of Site */}
             <section id = 'who' className = 'custom-section'>
-              <h1>{'Who:'}</h1>
+              <h1 className = 'section-header'>{'Who?'}</h1>
               <div id = 'who-container'>
                 <ImageStack></ImageStack>
                 <div id = 'who-captions'>
@@ -217,7 +228,7 @@ function App() {
             </section>
 
             <section id = 'strengths' className = 'custom-section'>
-              <h1>{'Strengths:'}</h1>
+              <h1 className = 'section-header'>{'Strengths:'}</h1>
               <div id = 'strengths-grid'>
                 <div className = 'strength-card'>
                   <h1>1. Tech-lover</h1>
@@ -235,7 +246,7 @@ function App() {
             </section>
 
             <section id = 'location' className = 'custom-section'>
-              <h1>{'Location:'}</h1>
+              <h1 className = 'section-header'>{'Location:'}</h1>
               <div id = 'location-grid'>
                 <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
                 <div id = 'location-captions'>
@@ -251,7 +262,7 @@ function App() {
             </section>
 
             <section id = 'skills-qualifications' className = 'custom-section'>
-              <h1>{'Skills & Qualifications:'}</h1>
+              <h1 className = 'section-header'>{'Skills & Qualifications:'}</h1>
               <div id = 'skills-qualifs-grid'>
 
                 <div className = 'skills-qualifications-card'>
@@ -350,7 +361,7 @@ function App() {
             </section>
 
             <section id = 'experience-projects' className = 'custom-section'>
-              <h1>{'Projects & Experience:'}</h1>
+              <h1 className = 'section-header'>{'Projects & Experience:'}</h1>
               <div id = 'EP-grid'>
                 <div id = 'EP-list'>
                   <div className = 'EP-item' id = 'work-experience'>
@@ -372,7 +383,7 @@ function App() {
 
                       <p> I decided that instead of just handing in a PDF resume, or using some website template, I should create my own. This is the first site that I've ever made, besides a few smaller school projects.</p>
 
-                      <p>I figured this would be a good showcase of my programming skills. If you want to view the source code, it's available in the GitHub repository linked below.</p>
+                      <p>I figured this would be a good showcase of my programming skills, as well as my ability to problem solve. If you want to view the source code, it's available in the GitHub repository linked below.</p>
                     </div>
                     <p className = 'PRT'>ChrispyWebsite GitHub</p>
                     <p className = 'PRL'>https://github.com/ChrispyJohnson1/ChrispyWebsite</p>
@@ -385,7 +396,7 @@ function App() {
                     </div>
                   </div> */}
                 </div>
-                <div id = 'EP-viewer'>  {/* This will be filled with the EventViewer on the EP-items */}
+                <div id = 'EP-viewer'>  {/* This will be filled by the EventViewer on the EP-items */}
                   <button id = 'EP-close-button'>✕</button>
                   <p id = 'EP-viewer-placeholder'>
                     Interact with an item for more information!
@@ -395,14 +406,53 @@ function App() {
             </section>
 
             <section id = 'resume' className = 'custom-section'>
-              <h1>{'Resume:'}</h1>
+              <div id = 'resume-container'>
+                  <div className = 'resume-section' id = 'resume-link'>
+                    <h1>Download my resume here:</h1>
+                    <a href = ''>
+                      <div id = 'resume-download-button'>
+                        <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
+                        Resume Download
+                        </div>
+                    </a>
+                  </div>
+                  <div className = 'resume-section' id = 'socials-content'>
+                    <h1>Socials:</h1>
+                    <div id = 'socials-links'>
+                      {/* LinkedIn Link */}
+                      <a href = ''>
+                        <div className = 'social-button' id = 'linkedin'>
+                          <FontAwesomeIcon icon={faLinkedinIn} className = 'social-icon' />  {/* LinkedIn Icon */}
+                          LinkedIn
+                        </div>
+                      </a>
+
+                      {/* GitHub Link */}
+                      <a href = 'https://github.com/chrispyjohnson1/'>
+                        <div className = 'social-button' id = 'github'>
+                          <FontAwesomeIcon icon={faGithub} className = 'social-icon' />  {/* LinkedIn Icon */}
+                          GitHub
+                        </div>
+                      </a>
+
+                      {/* Twitter Link */}
+                      <a href = ''>
+                        <div className = 'social-button' id = 'twitter'>
+                          <FontAwesomeIcon icon={faTwitter} className = 'social-icon' />  {/* LinkedIn Icon */}
+                          Twitter
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+              </div>
             </section>
           </div>
           
-          {/* <DynamicToC SectionData={SectionData}></DynamicToC> */}                  { /* Table of Contents */ } 
+          {/* <DynamicToC SectionData={SectionData}></DynamicToC>                  { /* Table of Contents */ }  */}
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-
+          <p>Version 1.0</p>
+          <p>Designed and created by Christopher Johnson</p>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
 /* Defines the general styling for the entire website */
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #272727;
+  background-color: #191919;
 }
 
 /* Styling for the site wrapper */
@@ -52,6 +52,7 @@
   grid-template-rows: min-content auto;
   justify-content: center;
   width: 100%;
+  margin-top: 6vh;
 }
 
 /* #hero-image {
@@ -63,7 +64,7 @@
 } */
 
 #hero-title {
-  margin-top: 6vh;
+  margin-top: 0px;
   margin-bottom: 0px;
   font-weight: 800;
   font-family: 'Mochiy Pop One', sans-serif;
@@ -82,13 +83,14 @@
   display: grid;
   grid-template-columns: max-content max-content max-content max-content max-content;
   justify-content: center;
+  margin-top: 3em;
 }
 
 #hero-tags p {
   margin-right: 10px;
-  margin-top: 15px;
   margin-bottom: 0px;
-  font-size: 22px;
+  margin-top: 0px;
+  font-size: 30px;
   font-weight: 600;
 }
 
@@ -152,22 +154,12 @@
   color:#05afff
 }
 
-/* Default styling for the sections of the site */
-.custom-section {
-  padding: 20px;
-  margin: 20px;
-  background-color: #191919;
-  border-radius: 18px;
-  scroll-margin-top: 25px;  /* adds spacing to the auto-scroll position */
-}
-
-/* Header styling for custom-sections */
-.custom-section h1 {
-  font-family: 'Lilita One', sans-serif;  /* https://fonts.google.com/share?selection.family=Lilita+One */
-  font-size: 40px;
+/* Header styling for section headers */
+.section-header {
+  font-size: 80pt;
   font-weight: 700;
-  margin: 0px;
-  padding: 10px;
+  margin: 0.45em 0px;
+  text-align: center;
 }
 
 /* Image Stack */
@@ -229,7 +221,9 @@
   grid-template-columns: auto auto auto;
   justify-content: center;
   align-content: center;
-  padding: 20px
+  padding: 20px;
+  margin: auto;
+  width: 70%
 }
 
 .strength-card {
@@ -279,10 +273,9 @@
 }
 
 #skills-qualifs-grid {
-  max-width: 90%;
+  max-width: 60vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/3)), 1fr));
-  grid-auto-flow: row dense;
   gap: auto;
   margin-left: auto;
   margin-right: auto;
@@ -291,7 +284,7 @@
 .skills-qualifications-card {
   display: grid;
   align-content: center;
-  margin: 15px;
+  margin: 12px;
   padding: 20px;
   border-radius: 18px;
   background-color: #05afff;  
@@ -377,17 +370,19 @@
   height: fit-content;
   display: grid;
   grid-template-columns: max-content max-content;
+  column-gap: 30px;
   align-content: center;
   margin-left: auto;
   margin-right: auto;
   background-color: #272727;
   border: 2px solid #202020;
   border-radius: 18px;
-  padding: 20px 35px;
+  padding: 30px
 }
 
 #EP-list {
   padding: 10px 0px;
+  width: max-content;
 }
 
 .EP-item {
@@ -425,7 +420,7 @@
 
 #EP-viewer {
   width: 43vw;
-  margin: 10px 20px;
+  margin: 10px 0px;
   background-color: #302f2f;
   border: 2px solid #222222;
   border-radius: 18px;
@@ -471,6 +466,7 @@
 
 #EP-viewer-title {
   font-size: 24pt;
+  font-weight: 700;
 }
 
 #EP-viewer-body p {
@@ -484,7 +480,7 @@
 
 .repo-button {
   display: grid;
-  grid-template-columns: min-content min-content;
+  grid-template-columns: max-content max-content;
   justify-content: center;
   align-content: center;
   width: min-content;
@@ -494,21 +490,156 @@
   text-wrap: nowrap;
   padding: 8px 13px;
   margin: 25px auto 0px auto;
-  font-size: 13pt;
+  font-size: 15pt;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .repo-button img {
-  width: 20px;
+  width: 15pt;
   height: auto;
   margin: auto;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 0.8em 0px 0px;
 }
 
 .repo-button:hover {
-  box-shadow: 1px 2px rgba(45,186,78, 0.5);
+  box-shadow: 1px 2px rgba(45,186,78, 0.7);
   transition: all 250ms ease-in-out;
+}
+
+#resume-container {
+  margin: 0px auto;
+  width: max-content;
+  /* height: 35vh; */
+  min-height: 35vh;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-content: center;
+  justify-content: center;
+  justify-self: center;
+  column-gap: 90px;
+}
+
+#resume-container h1 {
+  font-size: 25pt;
+}
+
+#resume-container a {
+  text-decoration: none;
+}
+
+#resume-link {
+  margin: auto;
+}
+
+.resume-section h1 {
+  text-align: center;
+  text-wrap: nowrap;
+}
+
+#resume-download-button {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  justify-content: center;
+  align-content: center;
+  width: min-content;
+  background-color: #24292e;  /* TEMPORARY! */
+  color: white;
+  border-radius: 18px;
+  text-wrap: nowrap;
+  padding: 13px 22px;
+  margin: 6px auto;
+  font-size: 24pt;
+  font-family: "Gabarito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#resume-download-button:hover {
+  transform: scale(1.005);
+  box-shadow: 1px 2px #05afff;
+  transition: all 250ms ease-in-out;
+}
+
+#download-icon {
+  width: 20pt;
+  height: auto;
+  margin: auto 12px auto 0px;
+}
+
+#socials-content {
+  margin: auto;
+}
+
+#socials-links {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.social-button {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  justify-content: center;
+  align-content: center;
+  width: min-content;
+  border-radius: 18px;
+  text-wrap: nowrap;
+  padding: 8px 22px;
+  font-size: 18pt;
+  font-family: "Source Sans 3", sans-serif;;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.social-icon {
+  width: 16pt;
+  height: auto;
+  margin: auto 12px auto 0px;
+}
+
+#linkedin {
+  color: white;
+  background-color: #0a66c2;
+}
+
+#linkedin:hover {
+  box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
+  transition: all 250ms ease-in-out;
+}
+
+#github {
+  color: #fafbfc;
+  background-color: #24292e;
+}
+
+#github:hover {
+  box-shadow: 1px 2px rgba(45,186,78, 0.7);
+  transition: all 250ms ease-in-out;
+}
+
+#twitter {
+  color: white;
+  background-color: #1DA1F2;
+}
+
+#twitter:hover {
+  box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
+  transition: all 250ms ease-in-out;
+}
+
+#site-footer {
+  width: 100%;
+  background-color: #111111;
+  padding: 20px;
+}
+
+#site-footer p {
+  color: white;
+  margin: 1em auto;
+  text-align: center;
+  font-size: 15pt;
 }
 
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: */
