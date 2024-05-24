@@ -1,6 +1,10 @@
-/* GENERAL STYLING: */
+/* GENERAL STYLING: ----------------------------------------------------------*/
 /* Styling that is independent of viewport size. This can be overwritten in the 
    viewport-size specific styling! */
+
+
+
+/* APP STYLING: Styling for the website in general */
 
 /* Defines the general styling for the entire website */
 .App {
@@ -8,12 +12,16 @@
   background-color: #191919;
 }
 
-/* Styling for the site wrapper */
-/* #site-wrapper {
-  background-color: #1d2023;
-} */
+/* Defines the link color for the entire website */
+.App-link {
+  color: #05afff;
+}
 
-/* Styling for the site header */
+
+
+/* HEADER STYLING: Styling for the site header */
+
+/* Defines the grid layout and visual styling of the site header */
 #site-header {
   display: grid;
   grid-template-rows: minmax(90vh, max-content) minmax(min-content, 10vh);
@@ -22,11 +30,59 @@
   background-color: #05afff;  /* TODO: PLACEHOLDER */
 }
 
+/* Container for the content of the site header.
+   Defines the grid styling and layout of the content */
+#hero-content {
+  display: grid;
+  grid-template-rows: min-content auto;
+  justify-content: center;
+  width: 100%;
+  margin-top: 6vh;
+}
+
+/* Layout and text styling for the large header text */
+#hero-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 800;
+  font-family: 'Mochiy Pop One', sans-serif;
+  display: none;
+}
+
+/* This styling is used when the viewport width is too small to display the
+   full-width title. */
+.hero-title-split {
+  margin-top: 6vh;
+  margin-bottom: 0px;
+  font-weight: 800;
+  font-family: 'Mochiy Pop One', sans-serif;
+  text-align: center;
+}
+
+/* Layout for the "tags" below the main title text */
+#hero-tags {
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content max-content;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+/* Defines the layout and font styling for the "tags" below the main title text */
+#hero-tags p {
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/* Centers the scroll indicator */
 #scroll-indicator {
   justify-content: center;
   margin: auto;
 }
 
+/* Aligns the text within the container and styles the text */
 #scroll-indicator p {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -36,6 +92,7 @@
   font-family: 'Mochiy Pop One', sans-serif;
 }
 
+/* Animation for the scroll indicator bounce */
 /* source: https://codepen.io/nelledejones/pen/gOOPWrK */
 @keyframes bounce2 {
   0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
@@ -43,127 +100,55 @@
 	60% {transform: translateY(-15px);}
 }
 
+/* Makes the scroll indicator bounce */
 .scroll-indicator-animation {
   animation: bounce2 2s ease infinite;
 }
 
-#hero-content {
-  display: grid;
-  grid-template-rows: min-content auto;
-  justify-content: center;
-  width: 100%;
-  margin-top: 6vh;
-}
 
-/* #hero-image {
-  max-width: 368px;
-  height: auto;
-  margin: 25px auto;
-  border-radius: 18px;
-  border: 2px solid #1d2023;
-} */
 
-#hero-title {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-weight: 800;
-  font-family: 'Mochiy Pop One', sans-serif;
-  display: none;
-}
-
-.hero-title-split {
-  margin-top: 6vh;
-  margin-bottom: 0px;
-  font-weight: 800;
-  font-family: 'Mochiy Pop One', sans-serif;
-  text-align: center;
-}
-
-#hero-tags {
-  display: grid;
-  grid-template-columns: max-content max-content max-content max-content max-content;
-  justify-content: center;
-  margin-top: 3em;
-}
-
-#hero-tags p {
-  margin-right: 10px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  font-size: 30px;
-  font-weight: 600;
-}
-
-/* The main grid for the site (contains the sections and ToC) */
-/* #site-grid {
-  display: grid;
-  grid-template-columns: auto 10em;
-} */
-
-/* Defines the link color for the entire website */
-.App-link {
-  color: #05afff;
-}
-
-/* Removes default list styling for the ToC */
-.ToC-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#site-grid > .ToC-nav {
-  position: sticky;
-  top: 2em;
-  align-self: start;
-}
-
-/* Defines styling for the <nav> in DynamicToC */
-.ToC-nav {
-  /* TODO: Finish to fit styling */
-  margin-top: 2rem;
-  margin-right: 50px;
-  padding-left: 0;
-  border-left: 1px solid #7e7e7e;
-}
-
-/* Styling for ToC items */
-.ToC-nav li {
-  margin-left: 1rem;
-}
-
-/* Styling for ToC items being visited */
-.ToC-nav li.active > a {
-  color: #05afff;
-  font-weight: 700;
-  margin-left: 0.25rem;
-}
-
-/* Styling for ToC hyperlinks */
-.ToC-nav a {
-  text-decoration: none;
-  display: block;
-  color: white;
-  transition: all 50ms ease-in-out;
-  padding: .125rem 0;
-  font-size: 14pt;
-}
-
-/* Styling for ToC hovered and focused items */
-.ToC-nav a:hover, .ToC-nav a:focus {
-  color:#05afff
-}
+/* SECTION HEADERS: Styling for the headers for each section of the webpage */
 
 /* Header styling for section headers */
 .section-header {
   font-size: 80pt;
   font-weight: 700;
-  margin: 0.45em 0px;
+  margin: 0.65em 0px 0.5em 0px;
   text-align: center;
 }
 
-/* Image Stack */
+
+
+/* WHO SECTION: */
+
+/* Defines the two-column layout for the "who" section */
+#who-container {
+  display: grid;
+  grid-template-columns: min-content auto;
+  justify-content: center;
+  align-content: center;
+}
+
+/* Defines the width and the alignment for the captions in the "who" section */
+#who-captions {
+  max-width: 30vw;
+  align-content: center;
+}
+
+/* Defines the visual styling and layout for the "who" captions */
+.who-caption {
+  padding: 10px 15px;
+  font-size: 16pt;  /* TODO: SCALE THIS */
+  font-weight: 600;
+}
+
+
+
+/* IMAGE STACK: Layout and visual styling for the stack of images in the "who section*/
 /* Source: https://bricampgomez.com/blog/how-to-overlap-images-in-css/ */
+
+/* Defines a grid layout for the images to be laid out in. This is purposely 
+   done in a way so that the images will overlap each other. */
 .image-stack {
   display: grid;
   grid-template-columns: repeat(24, 1em);
@@ -173,6 +158,7 @@
   margin-right: 150px;
 }
 
+/* Styling for the images within the stack */
 .image-stack img {
   max-width: 300px;
   height: auto;
@@ -180,7 +166,7 @@
   border: 2px solid #191919;
 }
 
-/* Image Stack Images: */
+/* Image Stack Images: defines the layout of each image within the grid (the "stack")*/
 .image-stack-image-one {
   grid-column: 1 / -1;
   grid-row: 1;
@@ -198,24 +184,11 @@
   z-index: 1;
 }
 
-#who-container {
-  display: grid;
-  grid-template-columns: min-content auto;
-  justify-content: center;
-  align-content: center;
-}
 
-#who-captions {
-  max-width: 30vw;
-  align-content: center;
-}
 
-.who-caption {
-  padding: 10px 15px;
-  font-size: 16pt;  /* TODO: SCALE THIS */
-  font-weight: 600;
-}
+/* STRENGTHS SECTION: */
 
+/* Defines the layout for the strengths section */
 #strengths-grid {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -226,6 +199,7 @@
   width: 70%
 }
 
+/* Defines the styling for each card in the strengths grid */
 .strength-card {
   max-width: 30em;
   padding: 20px;
@@ -234,16 +208,23 @@
   border-radius: 18px;
 }
 
+/* Visual styling for the header for each card in the strengths grid */
 .strength-card h1 {
   font-size: 19pt;
   font-weight: 700;
 }
 
+/* Visual styling for the paragraph text in the strengths cards */
 .strength-card p {
   font-size: 15pt;
   font-weight: 600pt
 }
 
+
+
+/* LOCATION SECTION: */
+
+/* Defines the two-column layout for the location section */
 #location-grid {
   display: grid;
   grid-template-columns: min-content auto;
@@ -251,6 +232,7 @@
   align-content: center;
 }
 
+/* Styling for the map in the location section */
 #location-grid iframe {
   width: 600px;
   height: 400px;
@@ -259,6 +241,7 @@
   margin-right: 20px;
 }
 
+/* Defines the layout for the location caption container */
 #location-captions {
   margin: auto;
   margin-left: 20px;
@@ -266,12 +249,19 @@
   align-content: center;
 }
 
+/* Defines the layout for each caption in the location section */
 .location-caption {
   padding: 2px 15px;
   font-size: 16pt;  /* TODO: SCALE THIS */
   font-weight: 600;
 }
 
+
+
+/* SKILLS & QUALIFICATIONS SECTION: */
+
+
+/* Defines the grid layout for the skills and qualifications */
 #skills-qualifs-grid {
   max-width: 60vw;
   display: grid;
@@ -281,6 +271,7 @@
   margin-right: auto;
 }
 
+/* Defines the layout and visual styling for the skills-qualifications cards */
 .skills-qualifications-card {
   display: grid;
   align-content: center;
@@ -292,6 +283,7 @@
   width: auto;
 }
 
+/* Visual styling for the SQ card header */
 .skills-qualifications-card h1 {
   max-width: 18em;
   font-size: 20pt;
@@ -300,6 +292,7 @@
   text-align: center;
 }
 
+/* Styling for the SQ card close button */
 .skills-qualifications-card button {
   display: none;
   position: absolute;
@@ -312,23 +305,33 @@
   padding: 0.66em 1em;
 }
 
+/* Styling for when the close button is hovered over by the mouse cursor */
 .skills-qualifications-card button:hover {
   transform: scale(1.1);
   color: red;
   font-weight: 600;
 }
 
+/* Defines the layout for the SQ card close button */
+.skills-qualifications-card.featured button {
+  display: block;
+  cursor: pointer;
+}
+
+/* Hover styling for the non-featured SQ cards */
 .skills-qualifications-card:not(.featured):hover {
   transform: scale(1.033);
   cursor: pointer;
 }
 
+/* Forces the featured SQ card to the top of the grid */
 .skills-qualifications-card.featured {
   order: -1;
   grid-column: 1 / -1;
   font-size: 133%;
 }
 
+/* defines the layout of the featured SQ card */
 .skills-qualifications-card.featured div {
   display: grid;
   grid-template-columns: 33.3% 66.6%;
@@ -336,35 +339,39 @@
   align-content: center;
 }
 
-.skills-qualifications-card.featured button {
-  display: block;
-  cursor: pointer;
-}
-
 /* When featured, the content is revealed */
 .skills-qualifications-card.featured .SQContent {
   display: block;
 }
 
+/* Layout and styling for the header of the featured SQ card */
 .skills-qualifications-card.featured h1 {
   font-size: 25pt;
   max-width: none;
 }
 
+/* When not featured the content of the SQ card is hidden */
 .SQContent {
   display: none;
   font-size: 18pt;
   margin: auto 2em
 }
 
+/* Adds a margin to the top of the list of programming languages */
 #programming-languages {
   margin-top: 15px;
 }
 
+/* Removes the default margin from the list of programming languages*/
 #programming-languages ul {
   margin: 0px;
 }
 
+
+
+/* EXPERIENCE & PROJECTS SECTION: */
+
+/* Defnies the grid layout for the Experience and Projects section */
 #EP-grid {
   width: fit-content;
   height: fit-content;
@@ -380,11 +387,13 @@
   padding: 30px
 }
 
+/* Defines the layout of the list of Experience and Projects cards */
 #EP-list {
   padding: 10px 0px;
   width: max-content;
 }
 
+/* Defines the layout and visual styling for the EP cards */
 .EP-item {
   margin: 20px auto;
   padding: 10px;
@@ -392,15 +401,18 @@
   border-radius: 18px;
 }
 
+/* EP items not currently featured will have a hover effect */
 .EP-item:not(.featured):hover {
   transform: scale(1.033);
   cursor: pointer;
 }
 
+/* Featured EP items have a default cursor */
 .EP-item.featured:hover {
   cursor: default;
 }
 
+/* Defines the styling for the EP card headers */
 .EP-item h1 {
   text-align: center;
   margin: auto;
@@ -418,6 +430,7 @@
   display: none;  /* Hide any content in the body */
 }
 
+/* Defines the layout for the Experience and Project viewer section */
 #EP-viewer {
   width: 43vw;
   margin: 10px 0px;
@@ -429,6 +442,8 @@
   contain: layout;
 }
 
+/* Defines the layout and styling for the EP viewer placeholder, which appears
+   when no EP item is featured */
 #EP-viewer-placeholder {
   justify-content: center;
   align-content: center;
@@ -438,10 +453,12 @@
   height: 18vh;
 }
 
+/* Hides the EP viewer placeholder when this class is applied */
 .hide-EPV-placeholder {
   display: none;
 }
 
+/* Defines layout and styling for the EP viewer close button */
 #EP-viewer button {
   display: none;
   position: absolute;
@@ -454,30 +471,37 @@
   padding: 0.5em 0.75em;
 }
 
+/* Defines hover styling for the EP viewer close button */
 #EP-viewer button:hover {
   transform: scale(1.1);
   color: red;
   font-weight: 600;
 }
 
+/* Removes link styling from the a-tag within the EP viewer */
 #EP-viewer a {
   text-decoration: none;
 }
 
+/* Defines visual styling for the EP viewer title */
 #EP-viewer-title {
   font-size: 24pt;
   font-weight: 700;
 }
 
+/* Defines visual styling for the content of the EP viewer */
 #EP-viewer-body p {
   font-size: 14pt;
 }
 
+/* Defines visual styling and layout for lists in the EP viewer */
 #EP-viewer-body li {
   font-size: 14pt;
   padding: 7px 0px;
 }
 
+/* Defines visual styling and layout for the repository button, which appears 
+   when the link and link title are included in the EP item card. */
 .repo-button {
   display: grid;
   grid-template-columns: max-content max-content;
@@ -495,6 +519,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Defines the layout for the image within the repository button */
 .repo-button img {
   width: 15pt;
   height: auto;
@@ -502,15 +527,20 @@
   padding: 0px 0.8em 0px 0px;
 }
 
+/* Adds a GitHub themed hover effect to the repository button */
 .repo-button:hover {
   box-shadow: 1px 2px rgba(45,186,78, 0.7);
   transition: all 250ms ease-in-out;
 }
 
+
+
+/* RESUME & SOCIALS SECTION: */
+
+/* Defines the layout for the resume (and socials) container */
 #resume-container {
   margin: 0px auto;
   width: max-content;
-  /* height: 35vh; */
   min-height: 35vh;
   display: grid;
   grid-template-columns: max-content max-content;
@@ -520,23 +550,29 @@
   column-gap: 90px;
 }
 
+/* Defines the visual styling for the headers within the resume container */
 #resume-container h1 {
   font-size: 25pt;
 }
 
+/* Removes the link styling from the a-tags within the resume container */
 #resume-container a {
   text-decoration: none;
 }
 
+/* Centers the resume button */
 #resume-link {
   margin: auto;
 }
 
+/* Centers the text and removes word-wrapping from the resume section headers
+   (These are the subsections within the resume container).*/
 .resume-section h1 {
   text-align: center;
   text-wrap: nowrap;
 }
 
+/* Defines visual styling and layout for the resume download button */
 #resume-download-button {
   display: grid;
   grid-template-columns: min-content min-content;
@@ -555,22 +591,26 @@
   font-style: normal;
 }
 
+/* Adds a hover effect to the resume download button */
 #resume-download-button:hover {
   transform: scale(1.005);
   box-shadow: 1px 2px #05afff;
   transition: all 250ms ease-in-out;
 }
 
+/* Centers and sets the size of the download icon within the resume download button */
 #download-icon {
   width: 20pt;
   height: auto;
   margin: auto 12px auto 0px;
 }
 
+/* Centers the social media links within the socials container*/
 #socials-content {
   margin: auto;
 }
 
+/* Defines the layout of the social media links */
 #socials-links {
   display: grid;
   grid-template-columns: repeat(3, min-content);
@@ -578,6 +618,7 @@
   gap: 1.5em;
 }
 
+/* Defines the layout and visual styling of the social media buttons */
 .social-button {
   display: grid;
   grid-template-columns: min-content min-content;
@@ -593,48 +634,61 @@
   font-style: normal;
 }
 
+/* Sets the size and layout for the social media icons within the buttons */
 .social-icon {
   width: 16pt;
   height: auto;
   margin: auto 12px auto 0px;
 }
 
+/* Defines the visual styling for the LinkedIn button */
 #linkedin {
   color: white;
   background-color: #0a66c2;
 }
 
+/* Adds a LinkedIn-themed hover effect to the LinkedIn button */
 #linkedin:hover {
   box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
   transition: all 250ms ease-in-out;
 }
 
+/* Defines the visual styling for the GitHub button */
 #github {
   color: #fafbfc;
   background-color: #24292e;
 }
 
+/* Adds a GitHub-themed hover effect to the GitHub button */
 #github:hover {
   box-shadow: 1px 2px rgba(45,186,78, 0.7);
   transition: all 250ms ease-in-out;
 }
 
+/* Defines the visual styling for the Twitter button */
 #twitter {
   color: white;
   background-color: #1DA1F2;
 }
 
+/* Adds a Twitter-themed hover effect to the Twitter button */
 #twitter:hover {
   box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
   transition: all 250ms ease-in-out;
 }
 
+
+
+/* SITE FOOTER: */
+
+/* Sets the visual styling and layout for the site footer */
 #site-footer {
   width: 100%;
   background-color: #111111;
   padding: 20px;
 }
 
+/* Defines the look of the text within the site footer */
 #site-footer p {
   color: white;
   margin: 1em auto;
@@ -642,17 +696,16 @@
   font-size: 15pt;
 }
 
-/* RESPONSIVE STYLING USING @media BREAKPOINTS: */
+
+
+
+
+
+/* RESPONSIVE STYLING USING @media BREAKPOINTS: ------------------------------*/
 /* source: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 650px) {  
-  /* #hero-image {
-    max-width: 196px;
-    margin: 25px auto;
-  } */
-
-
   .hero-title-split {
     font-size: 40pt;
   }
@@ -698,12 +751,6 @@
 
 /* Very large devices (laptops/desktops), 1850px and up */
 @media only screen and (min-width: 1850px) {
-  /* #site-wrapper {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto
-  } */
-
   #hero-title {
     font-size: 98pt;
   }
