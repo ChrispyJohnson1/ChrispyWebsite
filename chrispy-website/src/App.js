@@ -23,6 +23,25 @@ function App() {
     ScrollIntersectionObserver.observe(document.querySelector('#who'));
   }, []);
 
+  // IntersectionObserver for Image Stack animation
+  // Note: the animation only runs once per page visit!
+  useEffect(() => {
+    const ScrollIntersectionObserver = new IntersectionObserver(ImageStack => {
+      // there can only be one ImageStack!
+      if (ImageStack[0].isIntersecting) {
+        // movement animations
+        document.querySelector(`#image-stack-image-one`).classList.add('image-animation');
+        document.querySelector(`#image-stack-image-two`).classList.add('image-animation');
+        document.querySelector(`#image-stack-image-three`).classList.add('image-animation');
+
+        // opacity animation
+        document.querySelector(`#image-stack`).classList.add('image-stack-opacity-animation')
+      } 
+    }, {threshold: 0.35});
+    
+    ScrollIntersectionObserver.observe(document.querySelector('#image-stack'));
+  }, []);
+
   // Event Listener for the expanding card grid in the Skills and Qualifications section
   // source: https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/
   useEffect(() => {
@@ -91,7 +110,7 @@ function App() {
         
         // change the vertical alignment within the EP-viewer container
         // (for stylistic purposes)
-        $('#EP-viewer').css('align-content', 'unset');
+        // $('#EP-viewer').css('align-content', 'unset');
 
         // append the title and content to the EP-viewer
         $('#EP-viewer').append("<h1 id = 'EP-viewer-title'>" + EPItem_h1 + ":</h1>");
@@ -105,7 +124,7 @@ function App() {
         // in the EP-viewer
         if (project_repo_text != null && project_repo_link != null) {
           console.log(project_repo_text)
-          $('#EP-viewer').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "'>" + project_repo_text + "</div></a>");
+          $('#EP-viewer-body').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "'>" + project_repo_text + "</div></a>");
         }
 
         // make the close button visible
@@ -167,7 +186,7 @@ function App() {
             <p>↓</p>
           </div>
         </div>
-        <div>                                                                   { /* Sections of Site */}
+        <div id = 'site-content'>                                               { /* Sections of Site */}
           <section id = 'who' className = 'custom-section'>
             <h1 className = 'section-header'>{'Who?'}</h1>
             <div id = 'who-container'>
@@ -196,7 +215,7 @@ function App() {
             <h1 className = 'section-header'>{'Strengths:'}</h1>
             <div id = 'strengths-grid'>
               <div className = 'strength-card'>
-                <h1>1. Tech-lover</h1>
+                <h1>1. Tech Lover</h1>
                 <p>I'm very passionate about technology and I'm well-versed in many aspects of it.</p>
               </div>
               <div className = 'strength-card'>
@@ -204,7 +223,7 @@ function App() {
                 <p>With tech, I learn very quickly. Once I have experience, I can pick it up with ease.</p>
               </div>
               <div className = 'strength-card'>
-                <h1>3. Highly Organized</h1>
+                <h1>3. Well Organized</h1>
                 <p>University taught be to be very organized. I use calendars and reminders to stay on top of any situation.</p>
               </div>
             </div>
@@ -216,11 +235,11 @@ function App() {
               <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
               <div id = 'location-captions'>
                 <div className = 'location-caption'>
-                  <p>I live in Acton, Ontario, which is only a 20-25 minute drive from Guelph and Milton.</p>
+                  <p>I currently live in Acton, Ontario, which is around a 20-25 minute drive from Guelph and Milton. However, I will be moving in the next 12 months.</p>
                 </div>
 
                 <div className = 'location-caption'>
-                  <p>I have my G licence, a car, and I'm willing to drive long distances if required.</p>
+                  <p>I have my G licence, a car, and I'm willing to drive long distances if needed. I am also comfortable with driving as a part of work duties.</p>
                 </div>
               </div>
             </div>
@@ -388,7 +407,7 @@ function App() {
                   <h1>Socials:</h1>
                   <div id = 'socials-links'>
                     {/* LinkedIn Link */}
-                    <a href = ''>
+                    <a href = 'https://linkedin.com/in/chrispyjohnson/'>
                       <div className = 'social-button' id = 'linkedin'>
                         <FontAwesomeIcon icon={faLinkedinIn} className = 'social-icon' />  {/* LinkedIn Icon */}
                         LinkedIn
@@ -404,7 +423,7 @@ function App() {
                     </a>
 
                     {/* Twitter Link */}
-                    <a href = ''>
+                    <a href = 'https://twitter.com/chrispyjohnson_'>
                       <div className = 'social-button' id = 'twitter'>
                         <FontAwesomeIcon icon={faTwitter} className = 'social-icon' />  {/* Twitter Icon */}
                         Twitter

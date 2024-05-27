@@ -1,3 +1,23 @@
+/* GLOBAL VARIABLES: */
+:root {
+  /* Fonts: */
+  --inter-font: "Inter", sans-serif;
+  --rubik-font: "Rubik", sans-serif;
+  --segoe-ui-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --gabarito-font: "Gabarito", sans-serif;
+  --source-sans-3-font: "Source Sans 3", sans-serif;
+  --geologica-font: "Geologica", sans-serif;
+
+  /* Colours: */
+  --main-accent: #188AEF;
+  --grey-accent: #252525;
+  --dark-grey-accent: #111111;
+}
+
+
+
+
+
 /* GENERAL STYLING: ----------------------------------------------------------*/
 /* Styling that is independent of viewport size. This can be overwritten in the 
    viewport-size specific styling! */
@@ -8,7 +28,7 @@
 
 /* Defines the general styling for the entire website */
 .App {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--segoe-ui-font);
   background-color: #191919;
 }
 
@@ -27,7 +47,7 @@
   grid-template-rows: minmax(90vh, max-content) minmax(min-content, 10vh);
   align-items: center;
   justify-content: center;
-  background-color: #05afff;  /* TODO: PLACEHOLDER */
+  background-color: var(--main-accent);  /* TODO: PLACEHOLDER */
 }
 
 /* Container for the content of the site header.
@@ -36,7 +56,6 @@
   display: grid;
   grid-template-rows: min-content auto;
   justify-content: center;
-  width: 100%;
   margin-top: 6vh;
 }
 
@@ -45,7 +64,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   font-weight: 800;
-  font-family: 'Mochiy Pop One', sans-serif;
+  font-family: var(--inter-font);
   display: none;
 }
 
@@ -55,7 +74,7 @@
   margin-top: 6vh;
   margin-bottom: 0px;
   font-weight: 800;
-  font-family: 'Mochiy Pop One', sans-serif;
+  font-family: var(--inter-font);
   text-align: center;
 }
 
@@ -64,16 +83,17 @@
   display: grid;
   grid-template-columns: max-content max-content max-content max-content max-content;
   justify-content: center;
-  margin-top: 3em;
+  margin-top: 75px;
+  column-gap: 16px;
 }
 
 /* Defines the layout and font styling for the "tags" below the main title text */
 #hero-tags p {
-  margin-right: 10px;
   margin-bottom: 0px;
   margin-top: 0px;
-  font-size: 30px;
-  font-weight: 600;
+  font-family: var(--rubik-font);
+  font-size: 25pt;
+  font-weight: 500;
 }
 
 /* Centers the scroll indicator */
@@ -88,8 +108,8 @@
   margin-bottom: 0px;
   text-align: center;
   font-size: 18pt;
-  font-weight: 700;
-  font-family: 'Mochiy Pop One', sans-serif;
+  font-weight: 500;
+  font-family: var(--geologica-font);
 }
 
 /* Animation for the scroll indicator bounce */
@@ -111,9 +131,10 @@
 
 /* Header styling for section headers */
 .section-header {
-  font-size: 80pt;
-  font-weight: 700;
-  margin: 0.65em 0px 0.5em 0px;
+  font-family: var(--inter-font);
+  font-size: 85pt;
+  font-weight: 600;
+  margin: 1.25em 0px 0.58em 0px;
   text-align: center;
 }
 
@@ -124,9 +145,10 @@
 /* Defines the two-column layout for the "who" section */
 #who-container {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content max-content;
   justify-content: center;
   align-content: center;
+  gap: 30px;
 }
 
 /* Defines the width and the alignment for the captions in the "who" section */
@@ -138,7 +160,7 @@
 /* Defines the visual styling and layout for the "who" captions */
 .who-caption {
   padding: 10px 15px;
-  font-size: 16pt;  /* TODO: SCALE THIS */
+  font-size: 22pt;
   font-weight: 600;
 }
 
@@ -149,34 +171,35 @@
 
 /* Defines a grid layout for the images to be laid out in. This is purposely 
    done in a way so that the images will overlap each other. */
-.image-stack {
+#image-stack {
   display: grid;
   grid-template-columns: repeat(24, 1em);
   justify-content: center;
   align-content: center;
   width: fit-content;
   margin-right: 150px;
+  opacity: 0%;
 }
 
 /* Styling for the images within the stack */
-.image-stack img {
+#image-stack img {
   max-width: 300px;
   height: auto;
   border-radius: 18px;
-  border: 2px solid #191919;
+  border: 3px solid #202020;
 }
 
 /* Image Stack Images: defines the layout of each image within the grid (the "stack")*/
-.image-stack-image-one {
+#image-stack-image-one {
   grid-column: 1 / -1;
   grid-row: 1;
 }
-.image-stack-image-two {
+#image-stack-image-two {
   grid-column: 8 / -1;
   grid-row: 1;
   padding-top: calc(300px * 0.85);
 }
-.image-stack-image-three {
+#image-stack-image-three {
   grid-column: 1 / span 12;
   grid-row: 1;
   padding-top: calc((403px + 300px) * 0.85);
@@ -184,6 +207,35 @@
   z-index: 1;
 }
 
+/* Image Stack Animations: these trigger once per page load */
+.image-animation {
+  animation: ImageAnimation 700ms ease-out 1;
+}
+.image-stack-opacity-animation {
+  animation: ImageStackAnimation 700ms ease-out forwards;
+}
+
+/* Animation for image stack images */
+@keyframes ImageAnimation {
+	0% {
+    /* opacity: 30%; */
+    transform: translateX(-10%);
+  }
+
+  100% {
+    /* opacity: 100%; */
+    transform: translateX(0%);
+  }
+}
+@keyframes ImageStackAnimation {
+  0% {
+    opacity: 40%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
 
 
 /* STRENGTHS SECTION: */
@@ -201,23 +253,25 @@
 
 /* Defines the styling for each card in the strengths grid */
 .strength-card {
-  max-width: 30em;
+  max-width: 27em;
   padding: 20px;
   margin: 0px 1em;
-  background-color: #05afff;  /* ! TEMPORARY */
+  background-color: var(--main-accent);
   border-radius: 18px;
+  border: 3px solid rgb(21, 30, 39);
 }
 
 /* Visual styling for the header for each card in the strengths grid */
 .strength-card h1 {
-  font-size: 19pt;
+  font-family: var(--geologica-font);
+  font-size: 25pt;
   font-weight: 700;
 }
 
 /* Visual styling for the paragraph text in the strengths cards */
 .strength-card p {
-  font-size: 15pt;
-  font-weight: 600pt
+  font-size: 21pt;
+  font-weight: 400;
 }
 
 
@@ -227,17 +281,18 @@
 /* Defines the two-column layout for the location section */
 #location-grid {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content max-content;
   justify-content: center;
   align-content: center;
+  gap: 70px;
 }
 
 /* Styling for the map in the location section */
 #location-grid iframe {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 530px;
   border-radius: 18px;
-  border: none;
+  border: 3px solid #303030;
   margin-right: 20px;
 }
 
@@ -252,8 +307,13 @@
 /* Defines the layout for each caption in the location section */
 .location-caption {
   padding: 2px 15px;
-  font-size: 16pt;  /* TODO: SCALE THIS */
+  font-size: 20pt;
   font-weight: 600;
+}
+
+/* Alters the line height of the captions */
+.location-caption p {
+  line-height: 1.75em;
 }
 
 
@@ -276,9 +336,9 @@
   display: grid;
   align-content: center;
   margin: 12px;
-  padding: 20px;
+  padding: 50px 25px;
   border-radius: 18px;
-  background-color: #05afff;  
+  background-color: var(--grey-accent);  
   contain: layout;
   width: auto;
 }
@@ -286,8 +346,9 @@
 /* Visual styling for the SQ card header */
 .skills-qualifications-card h1 {
   max-width: 18em;
-  font-size: 20pt;
-  font-weight: 700;
+  font-family: var(--rubik-font);
+  font-size: 26pt;
+  font-weight: 500;
   margin: auto;
   text-align: center;
 }
@@ -322,13 +383,17 @@
 .skills-qualifications-card:not(.featured):hover {
   transform: scale(1.033);
   cursor: pointer;
+  background-color: var(--main-accent);
+  transition: all 200ms ease-in-out;
 }
 
-/* Forces the featured SQ card to the top of the grid */
+/* Forces the featured SQ card to the top of the grid and applies styling*/
 .skills-qualifications-card.featured {
   order: -1;
   grid-column: 1 / -1;
-  font-size: 133%;
+  padding: 30px;
+  background-color: var(--main-accent);
+  transform: scale(1.02);
 }
 
 /* defines the layout of the featured SQ card */
@@ -346,14 +411,14 @@
 
 /* Layout and styling for the header of the featured SQ card */
 .skills-qualifications-card.featured h1 {
-  font-size: 25pt;
+  font-size: 28pt;
   max-width: none;
 }
 
 /* When not featured the content of the SQ card is hidden */
 .SQContent {
   display: none;
-  font-size: 18pt;
+  font-size: 20pt;
   margin: auto 2em
 }
 
@@ -381,8 +446,8 @@
   align-content: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: #272727;
-  border: 2px solid #202020;
+  /* background-color: #272727; */
+  /* border: 2px solid #202020; */
   border-radius: 18px;
   padding: 30px
 }
@@ -397,14 +462,22 @@
 .EP-item {
   margin: 20px auto;
   padding: 10px;
-  background-color: #05afff; /* PLACEHOLDER */
+  background-color: var(--grey-accent);
   border-radius: 18px;
+}
+
+/* Font style for the EP item headers */
+.EP-item h1 {
+  font-size: 30pt;
+  font-weight: 600;
 }
 
 /* EP items not currently featured will have a hover effect */
 .EP-item:not(.featured):hover {
   transform: scale(1.033);
   cursor: pointer;
+  transition: all 100ms ease-in-out;
+  background-color: var(--main-accent);
 }
 
 /* Featured EP items have a default cursor */
@@ -420,6 +493,7 @@
   max-width: 40vw;
   padding: 10px 20px;
   word-wrap: break-word;
+  font-family: var(--rubik-font);
 }
 
 .EP-item p {
@@ -430,12 +504,18 @@
   display: none;  /* Hide any content in the body */
 }
 
+/* Highlights the featured EP item */
+.EP-item.featured {
+  transform: scale(1.033);
+  background-color: var(--main-accent);
+}
+
 /* Defines the layout for the Experience and Project viewer section */
 #EP-viewer {
   width: 43vw;
   margin: 10px 0px;
-  background-color: #302f2f;
-  border: 2px solid #222222;
+  background-color: var(--grey-accent);
+  border: 2px solid #1f1f1f;
   border-radius: 18px;
   padding: 30px;
   align-content: center;
@@ -449,7 +529,7 @@
   align-content: center;
   text-align: center;
   font-weight: 700;
-  font-size: 30pt;
+  font-size: 35pt;
   height: 18vh;
 }
 
@@ -485,18 +565,21 @@
 
 /* Defines visual styling for the EP viewer title */
 #EP-viewer-title {
-  font-size: 24pt;
+  font-family: var(--rubik-font);
+  font-size: 30pt;
   font-weight: 700;
+  margin: 0px 0px 0.7em 0px;
 }
 
 /* Defines visual styling for the content of the EP viewer */
 #EP-viewer-body p {
-  font-size: 14pt;
+  font-size: 16pt;
+  line-height: 1.65em;
 }
 
 /* Defines visual styling and layout for lists in the EP viewer */
 #EP-viewer-body li {
-  font-size: 14pt;
+  font-size: 16pt;
   padding: 7px 0px;
 }
 
@@ -513,7 +596,8 @@
   border-radius: 10px;
   text-wrap: nowrap;
   padding: 8px 13px;
-  margin: 25px auto 0px auto;
+  margin: 35px auto 0px auto;
+  border: 2px solid #222327;
   font-size: 15pt;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -531,6 +615,7 @@
 .repo-button:hover {
   box-shadow: 1px 2px rgba(45,186,78, 0.7);
   transition: all 250ms ease-in-out;
+  border: 2px solid #24292e;
 }
 
 
@@ -540,6 +625,7 @@
 /* Defines the layout for the resume (and socials) container */
 #resume-container {
   margin: 0px auto;
+  padding: 50px 0px;
   width: max-content;
   min-height: 35vh;
   display: grid;
@@ -547,12 +633,18 @@
   align-content: center;
   justify-content: center;
   justify-self: center;
-  column-gap: 90px;
+  column-gap: 14em;
+  background-color: var(--dark-grey-accent);
+  width: 100%;
 }
 
 /* Defines the visual styling for the headers within the resume container */
 #resume-container h1 {
-  font-size: 25pt;
+  font-size: 32pt;
+  font-family: var(--geologica-font);
+  font-weight: 500;
+  text-align: center;
+  text-wrap: nowrap;
 }
 
 /* Removes the link styling from the a-tags within the resume container */
@@ -563,13 +655,6 @@
 /* Centers the resume button */
 #resume-link {
   margin: auto;
-}
-
-/* Centers the text and removes word-wrapping from the resume section headers
-   (These are the subsections within the resume container).*/
-.resume-section h1 {
-  text-align: center;
-  text-wrap: nowrap;
 }
 
 /* Defines visual styling and layout for the resume download button */
@@ -586,7 +671,7 @@
   padding: 13px 22px;
   margin: 6px auto;
   font-size: 24pt;
-  font-family: "Gabarito", sans-serif;
+  font-family: var(--gabarito-font);
   font-weight: 400;
   font-style: normal;
 }
@@ -628,8 +713,8 @@
   border-radius: 18px;
   text-wrap: nowrap;
   padding: 8px 22px;
-  font-size: 18pt;
-  font-family: "Source Sans 3", sans-serif;;
+  font-size: 22pt;
+  font-family: var(--gabarito-font);
   font-weight: 400;
   font-style: normal;
 }
@@ -683,8 +768,7 @@
 
 /* Sets the visual styling and layout for the site footer */
 #site-footer {
-  width: 100%;
-  background-color: #111111;
+  background-color: #0a0a0a;
   padding: 20px;
 }
 
