@@ -1,5 +1,6 @@
 import './styles/App.css';
 import ImageStack from './components/ImageStack';
+import personal_photo from './resources/personal_photo.jpg'
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import GitHubIcon from './resources/github-mark-white.png'
@@ -175,11 +176,12 @@ function App() {
             
             <div id = 'hero-tags'>
               <p>Computer Science Graduate</p>
-              <p>|</p>
+              <p>•</p>
               <p>Programmer</p>
-              <p>|</p>
+              <p>•</p>
               <p>IT Specialist</p>
             </div>
+
           </div>
           <div id = 'scroll-indicator' className = 'scroll-indicator-animation'>
             <p>Scroll</p>
@@ -191,6 +193,7 @@ function App() {
             <h1 className = 'section-header'>{'Who?'}</h1>
             <div id = 'who-container'>
               <ImageStack></ImageStack>
+              <img id = 'hero-image' src = {personal_photo}></img>
               <div id = 'who-captions'>
                 <div id = 'who-1' className = 'who-caption'>
                   <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about all things technology and IT.</p>
@@ -399,7 +402,7 @@ function App() {
                   <a href = ''>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
-                      Resume Download
+                      Download
                       </div>
                   </a>
                 </div>
@@ -437,6 +440,7 @@ function App() {
         <div id = 'site-footer'>                                                { /* Site Footer */ }
           <p>Version 1.0</p>
           <p>Designed and created by Christopher Johnson</p>
+          <p>Last updated May 28th, 2024</p>
         </div>
     </div>
   );
