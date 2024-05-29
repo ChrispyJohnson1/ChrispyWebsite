@@ -1,6 +1,5 @@
 import './styles/App.css';
 import ImageStack from './components/ImageStack';
-import personal_photo from './resources/personal_photo.jpg'
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import GitHubIcon from './resources/github-mark-white.png'
@@ -125,7 +124,7 @@ function App() {
         // in the EP-viewer
         if (project_repo_text != null && project_repo_link != null) {
           console.log(project_repo_text)
-          $('#EP-viewer-body').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "'>" + project_repo_text + "</div></a>");
+          $('#EP-viewer-body').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "' alt = 'The GitHub logo.'>" + project_repo_text + "</div></a>");
         }
 
         // make the close button visible
@@ -193,7 +192,6 @@ function App() {
             <h1 className = 'section-header'>{'Who?'}</h1>
             <div id = 'who-container'>
               <ImageStack></ImageStack>
-              <img id = 'hero-image' src = {personal_photo}></img>
               <div id = 'who-captions'>
                 <div id = 'who-1' className = 'who-caption'>
                   <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about all things technology and IT.</p>
@@ -254,7 +252,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Qualification:</u> Bachelor of Science (CS)</h1>
+                  <h1><b>Qualification:</b> Bachelor of Science (CS)</h1>
                   <div className = 'SQContent'>
                     <p>I achieved my Bachelor of Science (Honors) in Computer Science from Ontario Tech University. It gave me a much greater understanding of how to work with many aspects of technology, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                   </div>
@@ -264,7 +262,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Programming</h1>
+                  <h1><b>Skill:</b> Programming</h1>
                   <div className = 'SQContent'>
                     I have experience in many different programming languages, such as: 
                     <div id = 'programming-languages'>
@@ -289,7 +287,7 @@ function App() {
               
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Building and Maintaining Computers</h1>
+                  <h1><b>Skill:</b> Building and Maintaining Computers</h1>
                   <div className = 'SQContent'>
                     <p>I have experience working on and building tower computers. I've built my own personal computer, as well as worked on others computers for fun. I'm comfortable replacing any component in a tower, such as RAM, GPUs, disk drives, and more.</p>
 
@@ -301,7 +299,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Data Science</h1>
+                  <h1><b>Skill:</b> Data Science</h1>
                   <div className = 'SQContent'>
                     <p>My knowledge of data science techniques and algorithms allows me to efficiently gather and analyze data, in order to gain a better understanding of patterns and trends.</p>
 
@@ -313,7 +311,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Teamwork and Leadership</h1>
+                  <h1><b>Skill:</b> Teamwork and Leadership</h1>
                   <div className = 'SQContent'>
                     <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role and coordinate teams to meet deadlines and work together in a organized and productive way.</p>
 
@@ -325,7 +323,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Operating Systems</h1>
+                  <h1><b>Skill:</b> Operating Systems</h1>
                   <div className = 'SQContent'>
                     <p>I have extensive experience with Windows, from basic configuration like configuring networks, updating drivers, installing software etc., to more advanced troubleshooting techniques like using the Windows Event Viewer or Task Scheduler.</p>
 
@@ -337,7 +335,7 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><u>Skill:</u> Virtualization</h1>
+                  <h1><b>Skill:</b> Virtualization</h1>
                   <div className = 'SQContent'>
                     <p>I have experience with virtualization software like VMWare and VirtualBox, and have some experience with Docker, and can effectively work with all three to configure and work with VMs/Containers.</p>
                   </div>
@@ -356,9 +354,9 @@ function App() {
                   <div className = 'EP-item-body'>
                     <p>I have some work experience from a summer job I held between university semesters. While this experience may not be fully applicable to the position I'm applying for, I feel that it has prepared me in three key ways:</p>
                     <ul>
-                      <li><b><u>Accountability</u></b>: it helped me learn to be accountable for my work, and take responsibility for my successes <u>and</u> my failures.</li>
-                      <li><b><u>Teamwork</u></b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
-                      <li><b><u>Preparedness</u></b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment. An example of this would be how important punctuality is in a work setting.</li>
+                      <li><b>Accountability</b>: it helped me learn to be accountable for my work, and take responsibility for my successes <b>and</b> my failures.</li>
+                      <li><b>Teamwork</b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
+                      <li><b>Preparedness</b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment. An example of this would be how important punctuality is in a work setting.</li>
                     </ul>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ export default function ImageStack({ImageInfo}) {
 
             {/* Image Three: Personal/Fun */}
             <div id = 'image-stack-image-three'>
-                <img src={professional_photo} alt = 'Christopher Johnson with a slight smile, looking at the camera. He is wearing a white collared shirt, a blue tie, and a jacket.'></img>
+                <img src={professional_photo} alt = 'Christopher Johnson wearing a white collared shirt, a blue tie, and a jacket.'></img>
             </div>
 
         </div>

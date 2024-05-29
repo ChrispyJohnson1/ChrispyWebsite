@@ -38,10 +38,6 @@
   background-color: #146ebd;
 }
 
-* {  /* !DEBUGGING */
-  /* border: 1px solid red; */
-}
-
 
 
 /* HEADER STYLING: Styling for the site header */
@@ -722,21 +718,6 @@
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: ------------------------------*/
 /* source: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 
-@media only screen and (max-width: 285px) {
-  #image-stack {
-    display: none;
-  }
-
-  #hero-image {
-    display: block;
-    width: 70vw;
-    height: auto;
-    margin: 0px auto;
-    border-radius: 18px;
-    border: 3px solid #202020;
-  }
-}
-
 /* Smallest devices */
 @media only screen and (max-width: 450px) {
 
@@ -764,10 +745,12 @@
     font-size: 4vw;
   }
 
+
   /* SECTION HEADERS: */
   .section-header {
     font-size: 12vw;
   }
+
 
   /* WHO SECTION: */
   #who-container {
@@ -786,6 +769,7 @@
     line-height: 1.5em;
     font-size: 5vw;
   }
+
 
   /* IMAGE STACK: */
   #image-stack {
@@ -819,6 +803,7 @@
     display: none;
   }
 
+
   /* STRENGTHS SECTION: */
   #strengths-grid {
     grid-template-columns: none;
@@ -838,6 +823,7 @@
   .strength-card p {
     font-size: 5vw;
   }
+
 
   /* LOCATION SECTION: */
   #location-grid {
@@ -859,6 +845,7 @@
   .location-caption p {
     font-size: 5vw;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
   #skills-qualifs-grid {
@@ -901,14 +888,12 @@
   #EP-grid {
     grid-template-columns: none;
     grid-template-rows: max-content max-content;
-    /* width: 80vw; */
     padding: 0px;
     margin: 30px auto;
   }
 
   #EP-list {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(1em, 1fr)); */
     grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
     width: 80vw;
     margin: 0px auto;
@@ -955,6 +940,7 @@
     width: 4.5vw;
   }
 
+
   /* RESUME & SOCIALS SECTION: */
   #resume-container {
     grid-template-columns: none;
@@ -982,6 +968,7 @@
     gap: 1em;
     align-content: center;
   }
+
 
   /* SITE FOOTER: */
   #site-footer p {
@@ -1016,11 +1003,13 @@
     font-size: 4vw;
   }
 
+
   /* SECTION HEADERS: */
   .section-header {
     font-size: 35pt;
     padding: 0px 30px;
   }
+
 
   /* WHO SECTION: */
   #who-container {
@@ -1039,6 +1028,7 @@
     line-height: 1.5em;
     font-size: 15pt;
   }
+
 
   /* IMAGE STACK: */
   #image-stack {
@@ -1072,6 +1062,7 @@
     display: none;
   }
 
+
   /* STRENGTHS SECTION: */
   #strengths-grid {
     grid-template-columns: none;
@@ -1091,6 +1082,7 @@
   .strength-card p {
     font-size: 17pt;
   }
+
 
   /* LOCATION SECTION: */
   #location-grid {
@@ -1112,6 +1104,7 @@
   .location-caption p {
     font-size: 12pt;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
   #skills-qualifs-grid {
@@ -1136,12 +1129,10 @@
   #EP-grid {
     grid-template-columns: none;
     grid-template-rows: max-content max-content;
-    /* column-gap: 30px; */
   }
 
   #EP-list {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(1em, 1fr)); */
     grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
     width: 100%;
     margin: 0px auto;
@@ -1178,6 +1169,7 @@
     font-size: 14pt;
   }
 
+
   /* RESUME & SOCIALS SECTION: */
   #resume-container {
     grid-template-columns: none;
@@ -1204,6 +1196,7 @@
     gap: 1em;
     align-content: center;
   }
+
 
   /* SITE FOOTER: */
   #site-footer p {
@@ -1235,6 +1228,7 @@
     font-size: 18pt;
   }
 
+
   /* SECTION HEADERS: */
 
 
@@ -1246,8 +1240,9 @@
   .who-caption {
     padding: 0px 15px;
     line-height: 1.5em;
-    font-size: 17pt;
+    font-size: 16pt;
   }
+
 
   /* IMAGE STACK: */
   #image-stack {
@@ -1277,6 +1272,7 @@
     z-index: 1;
   }
 
+
   /* STRENGTHS SECTION: */
 
 
@@ -1301,6 +1297,7 @@
   .location-caption p {
     font-size: 14pt;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
 
@@ -1332,6 +1329,7 @@
     font-size: 16pt;
   }
 
+
   /* SITE FOOTER: */
   #site-footer p {
     font-size: 15pt;
@@ -1349,6 +1347,7 @@
     font-size: 45pt;
   }
 
+
   /* WHO SECTION: */
 
 
@@ -1362,6 +1361,7 @@
   .location-caption p {
     font-size: 15pt;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
   .skills-qualifications-card.featured h1 {
@@ -1379,10 +1379,12 @@
     font-size: 28pt;
   }
 
+
   /* RESUME & SOCIALS SECTION: */
 
 
   /* SITE FOOTER: */
+
 }
 
 /* Large devices (laptops/desktops, 1050px and up) */
@@ -1416,7 +1418,7 @@
 
   /* WHO SECTION: */
   .who-caption {
-    font-size: 22pt;
+    font-size: 18pt;
   }
 
 
@@ -1460,6 +1462,7 @@
   .location-caption p {
     font-size: 16pt;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
   #skills-qualifs-grid {
@@ -1511,6 +1514,7 @@
   }
 
   /* SITE FOOTER: */
+
 }
 
 /* Even larger devices (laptops and desktops, 1250px and up) */
@@ -1583,6 +1587,7 @@
     z-index: 1;
   }
 
+
   /* STRENGTHS SECTION: */
   #strengths-grid {
     grid-template-columns: auto auto auto;
@@ -1624,6 +1629,7 @@
   .location-caption p {
     font-size: 18pt;
   }
+
 
   /* SKILLS & QUALIFICATIONS SECTION: */
   #skills-qualifs-grid {
@@ -1716,6 +1722,7 @@
   }
 
   /* SITE FOOTER: */
+
 }
 
 /* Very large devices (laptops/desktops), 1850px and up */
@@ -1739,6 +1746,7 @@
   .section-header {
     font-size: 80pt;
   }
+
 
   /* WHO SECTION: */
 
@@ -1830,6 +1838,7 @@
 
 
   /* SITE FOOTER: */
+
 }
 
 /* Extra large devices (4k and higher) */
@@ -1882,4 +1891,5 @@
   }
 
   /* SITE FOOTER: */
+  
 }
