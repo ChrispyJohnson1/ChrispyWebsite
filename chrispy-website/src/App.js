@@ -362,7 +362,7 @@ function App() {
                 </div>
 
                 <div className = 'EP-item' id = 'chrispywebsite'>
-                  <h1>ChrispyWebsite</h1>
+                  <h1>Personal Website</h1>
                   <div className = 'EP-item-body'>
                     <p>The website you're reading right now was programmed entirely by <b>me</b> -- with help from the internet, of course.</p>
 
@@ -438,7 +438,7 @@ function App() {
         <div id = 'site-footer'>                                                { /* Site Footer */ }
           <p>Version 1.0</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated May 28th, 2024</p>
+          <p>Last updated May 30th, 2024</p>
         </div>
     </div>
   );
