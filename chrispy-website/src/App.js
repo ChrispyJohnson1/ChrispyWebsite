@@ -123,7 +123,6 @@ function App() {
         // if the text and link are included in the EP-item, render a link to the repository
         // in the EP-viewer
         if (project_repo_text != null && project_repo_link != null) {
-          console.log(project_repo_text)
           $('#EP-viewer-body').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "' alt = 'The GitHub logo.'>" + project_repo_text + "</div></a>");
         }
 
@@ -178,7 +177,7 @@ function App() {
               <p>•</p>
               <p>Programmer</p>
               <p>•</p>
-              <p>IT Specialist</p>
+              <p>IT Enthusiast</p>
             </div>
 
           </div>
@@ -194,19 +193,23 @@ function App() {
               <ImageStack></ImageStack>
               <div id = 'who-captions'>
                 <div id = 'who-1' className = 'who-caption'>
-                  <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about all things technology and IT.</p>
+                  <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about technology and IT.</p>
                 </div>
 
                 <div id = 'who-2'  className = 'who-caption'>
-                  <p>I love helping people, especially with their technology issues. So much so, that I was jokingly known as the "IT Guy" in school.</p>
-                </div>
-
-                <div id = 'who-3'  className = 'who-caption'>
                   <p>Ever since I was a kid, I have always loved technology. My dad would bring home old computers that I would spend hours tinkering with and trying to fix.</p>
                 </div>
 
-                <div id = 'who-4'  className = 'who-caption'>
+                <div id = 'who-3'  className = 'who-caption'>
                   <p>That means I have experience building computers, as well as maintaining them. I am capable of replacing broken components or upgrading computers whenever needed.</p>
+                </div>
+
+                <div id = 'who-4'  className = 'who-caption'>
+                  <p>Along with my love for technology, I also love helping people — especially with their tech problems. Answering questions about tech, and helping people solve their tech issues is one of my favourite things to do.</p>
+                </div>
+
+                <div id='who-5' className = 'who-caption'>
+                  <p></p>
                 </div>
               </div>
             </div>
@@ -217,15 +220,15 @@ function App() {
             <div id = 'strengths-grid'>
               <div className = 'strength-card'>
                 <h1>1. Tech Lover</h1>
-                <p>I'm very passionate about technology and I'm well-versed in many aspects of it.</p>
+                <p>I'm very passionate about technology and I love working with it.</p>
               </div>
               <div className = 'strength-card'>
                 <h1>2. Fast Learner</h1>
-                <p>With tech, I learn very quickly. Once I have experience, I can pick it up with ease.</p>
+                <p>Once I have experience with something, I can pick it up pretty quickly.</p>
               </div>
               <div className = 'strength-card'>
                 <h1>3. Well Organized</h1>
-                <p>University taught be to be very organized. I use calendars and reminders to stay on top of any situation.</p>
+                <p>University taught be to be very organized. I use calendars and reminders to stay on top of everything.</p>
               </div>
             </div>
           </section>
@@ -236,7 +239,7 @@ function App() {
               <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
               <div id = 'location-captions'>
                 <div className = 'location-caption'>
-                  <p>I currently live in Acton, Ontario, which is around a 20-25 minute drive from Guelph and Milton. However, I will be moving in the next 12 months.</p>
+                  <p>I currently live in Acton, Ontario, which is a 20-25 minute drive from Guelph and Milton. However, I will be moving in the next 12 months.</p>
                 </div>
 
                 <div className = 'location-caption'>
@@ -254,7 +257,7 @@ function App() {
                 <div>
                   <h1><b>Qualification:</b> Bachelor of Science (CS)</h1>
                   <div className = 'SQContent'>
-                    <p>I achieved my Bachelor of Science (Honors) in Computer Science from Ontario Tech University. It gave me a much greater understanding of how to work with many aspects of technology, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
+                    <p>I achieved a Bachelor of Science (Honors) in Computer Science from Ontario Tech University. My time in university gave me a greater understanding of a wide range of technologies, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -289,7 +292,7 @@ function App() {
                 <div>
                   <h1><b>Skill:</b> Building and Maintaining Computers</h1>
                   <div className = 'SQContent'>
-                    <p>I have experience working on and building tower computers. I've built my own personal computer, as well as worked on others computers for fun. I'm comfortable replacing any component in a tower, such as RAM, GPUs, disk drives, and more.</p>
+                    <p>I have experience working on and building tower computers. I've built my own personal computer, as well as worked on others computers for fun. I'm comfortable replacing any component in a tower, such as RAM, CPUs, HDDs/SSDs, and more.</p>
 
                     <p>I have also worked on laptops, having done various levels of maintenance on my own personal laptops (from replacing RAM and SSDs to removing and replacing the cooler).</p>
                   </div>
@@ -303,7 +306,7 @@ function App() {
                   <div className = 'SQContent'>
                     <p>My knowledge of data science techniques and algorithms allows me to efficiently gather and analyze data, in order to gain a better understanding of patterns and trends.</p>
 
-                    <p>I also have experience in data visualization, specifically with R. I can create insightful, ethical, and visually appealing graphics that can be used for data analysis.</p>
+                    <p>I also have experience in data visualization, specifically with R and Python. I can create insightful, ethical, and visually appealing graphics that can be used for data analysis.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -337,7 +340,7 @@ function App() {
                 <div>
                   <h1><b>Skill:</b> Virtualization</h1>
                   <div className = 'SQContent'>
-                    <p>I have experience with virtualization software like VMWare and VirtualBox, and have some experience with Docker, and can effectively work with all three to configure and work with VMs/Containers.</p>
+                    <p>I have experience with virtualization software like VMWare and VirtualBox, and have some experience with Docker. I can effectively work with all three to configure and work with VMs/Containers.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -356,7 +359,7 @@ function App() {
                     <ul>
                       <li><b>Accountability</b>: it helped me learn to be accountable for my work, and take responsibility for my successes <b>and</b> my failures.</li>
                       <li><b>Teamwork</b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
-                      <li><b>Preparedness</b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment. An example of this would be how important punctuality is in a work setting.</li>
+                      <li><b>Preparedness</b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment.</li>
                     </ul>
                   </div>
                 </div>
@@ -364,9 +367,9 @@ function App() {
                 <div className = 'EP-item' id = 'chrispywebsite'>
                   <h1>Personal Website</h1>
                   <div className = 'EP-item-body'>
-                    <p>The website you're reading right now was programmed entirely by <b>me</b> -- with help from the internet, of course.</p>
+                    <p>The website you're reading right now was programmed entirely by <b>me</b> —  with help from the internet, of course.</p>
 
-                    <p> I decided that instead of just handing in a PDF resume, or using some website template, I should create my own. This is the first site that I've ever made, besides a few smaller school projects.</p>
+                    <p> I thought that instead of just handing in a PDF resume, or using a website template, I should create my own. This is the first site that I've ever made, besides a few smaller school projects.</p>
 
                     <p>I figured this would be a good showcase of my programming skills, as well as my ability to problem solve. If you want to view the source code, it's available in the GitHub repository linked below.</p>
                   </div>
