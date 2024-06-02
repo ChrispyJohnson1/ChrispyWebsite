@@ -6,7 +6,7 @@
 
 ## Purpose:
 
-The main purpose of this sits is to offer a more in-depth showcase of my strengths, skills, and qualifications than is seen on my resume. It also provides more up to date information than my resume, meaning that it's the most accurate source of information about me.
+The main purpose of this sits is to offer a more in-depth showcase of my strengths, skills, and qualifications than is seen on my resume. Since it's possible to update this site at any time, it's the most up to date source of information about me.
 
 It is a showcase for my portfolio, containing my best work in a single, easily accessible place. Not only that, but it's also *a part* of my portfolio. It showcases my programming and design skills, as well as my ability to problem solve.
 
