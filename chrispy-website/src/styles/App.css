@@ -363,6 +363,7 @@
 /* Layout and styling for the header of the featured SQ card */
 .skills-qualifications-card.featured h1 {
   max-width: none;
+  padding: 0px 10px;
 }
 
 /* When not featured the content of the SQ card is hidden */
@@ -1364,6 +1365,11 @@
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
+  .skills-qualifications-card.featured {
+    order: -1;
+    grid-column: 1 / -1;
+  }
+
   .skills-qualifications-card.featured h1 {
     width: 80%;
     font-size: 18pt;
@@ -1473,14 +1479,18 @@
     padding: 50px 25px;
   }
 
-  .skills-qualifications-card.featured {
-    order: -1;
-    grid-column: 1 / -1;
+  .skills-qualifications-card.featured div {
+    display: grid;
+    grid-template-columns: 33.3% 66.6%;
   }
 
   .skills-qualifications-card.featured h1 {
     width: auto;
     font-size: 22pt;
+  }
+
+  .SQContent {
+
   }
 
 
@@ -1639,11 +1649,6 @@
   
   .skills-qualifications-card h1 {
     font-size: 22pt;
-  }
-
-  .skills-qualifications-card.featured div {
-    display: grid;
-    grid-template-columns: 33.3% 66.6%;
   }
 
   .skills-qualifications-card.featured h1 {

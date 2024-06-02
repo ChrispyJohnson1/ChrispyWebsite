@@ -1,6 +1,7 @@
 {
   "name": "chrispy-website",
   "version": "1.0",
+  "homepage": "https://chrispyjohnson.tech",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

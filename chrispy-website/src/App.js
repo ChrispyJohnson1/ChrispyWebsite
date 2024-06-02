@@ -272,13 +272,27 @@ function App() {
                       <ul>
                         <li>C/C++</li>
                         <li>Python</li>
+                        <li>R</li>
                         <li>Java</li>
                         <li>Kotlin</li>
+                        <li>SQL</li>
                       </ul>
                       <ul>
-                        <li>HTML + CSS + JavaScript</li>
-                        <li>R</li>
-                        <li>SQL</li>
+                        <li>
+                          Web Development:
+                          <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>
+                            JavaScript
+                            <ul>
+                              <li>React</li>
+                              <li>jQuery</li>
+                              <li>Vue</li>
+                            </ul>
+                          </li>
+                          </ul>
+                        </li>
                       </ul>
                     </div>
 
@@ -441,7 +455,7 @@ function App() {
         <div id = 'site-footer'>                                                { /* Site Footer */ }
           <p>Version 1.0</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated May 30th, 2024</p>
+          <p>Last updated June 2nd, 2024</p>
         </div>
     </div>
   );
