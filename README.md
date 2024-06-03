@@ -43,3 +43,21 @@ Presents my main accomplishments and experience along with a detailed descriptio
 ## Resume & Socials
 
 Provides links to download my resume, as well as links to my available social platforms.
+
+---
+
+## References:
+
+These are the sources I took inspiration from. I utilized and/or paraphrased some of the authors' code, so I want to give them credit.
+
+Smooth Scrolling Sticky ScrollSpy Navigation:
+https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/
+
+Intersection Observer using React:
+https://dev.to/producthackers/intersection-observer-using-react-49ko
+
+How to Overlap Images in CSS:
+https://bricampgomez.com/blog/how-to-overlap-images-in-css/
+
+Expanding Grid Cards with View Transitions:
+https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/
