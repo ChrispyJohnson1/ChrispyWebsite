@@ -61,3 +61,6 @@ https://bricampgomez.com/blog/how-to-overlap-images-in-css/
 
 Expanding Grid Cards with View Transitions:
 https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/
+
+How to disable hover effects for mobile devices using CSS:
+https://erikmartinjordan.com/remove-hover-effects-css-mobile

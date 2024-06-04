@@ -228,7 +228,7 @@ function App() {
               </div>
               <div className = 'strength-card'>
                 <h1>3. Well Organized</h1>
-                <p>University taught be to be very organized. I use calendars and reminders to stay on top of everything.</p>
+                <p>University taught me to be very organized. I use calendars and reminders to stay on top of everything.</p>
               </div>
             </div>
           </section>
@@ -251,6 +251,7 @@ function App() {
 
           <section id = 'skills-qualifications' className = 'custom-section'>
             <h1 className = 'section-header'>{'Skills & Qualifications:'}</h1>
+            <p id = 'SQ-caption'>Click or tap on an item for more info</p>
             <div id = 'skills-qualifs-grid'>
 
               <div className = 'skills-qualifications-card'>
@@ -330,7 +331,7 @@ function App() {
                 <div>
                   <h1><b>Skill:</b> Teamwork and Leadership</h1>
                   <div className = 'SQContent'>
-                    <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role and coordinate teams to meet deadlines and work together in a organized and productive way.</p>
+                    <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role and coordinate teams to meet deadlines and work together in an organized and productive way.</p>
 
                     <p>It is my intention to bring those same team-oriented and leadership qualities to any position I hold.</p>
                   </div>
@@ -381,11 +382,13 @@ function App() {
                 <div className = 'EP-item' id = 'chrispywebsite'>
                   <h1>Personal Website</h1>
                   <div className = 'EP-item-body'>
-                    <p>The website you're reading right now was programmed entirely by <b>me</b> —  with help from the internet, of course.</p>
+                    <p>The website you're reading was programmed entirely by <b>me</b> —  with help from the internet, of course.</p>
 
-                    <p> I thought that instead of just handing in a PDF resume, or using a website template, I should create my own. This is the first site that I've ever made, besides a few smaller school projects.</p>
+                    <p> I thought that, instead of <i>just</i> handing in a PDF resume, or using a website template, I should create my own. And this is the first site that I've ever made, besides a few smaller school projects.</p>
 
-                    <p>I figured this would be a good showcase of my programming skills, as well as my ability to problem solve. If you want to view the source code, it's available in the GitHub repository linked below.</p>
+                    <p>I figured this would be a good showcase of my programming skills, as well as my ability to problem solve.</p>
+
+                    <p>If you want to view the source code, it's available in the GitHub repository linked below.</p>
                   </div>
                   <p className = 'PRT'>ChrispyWebsite GitHub</p>
                   <p className = 'PRL'>https://github.com/ChrispyJohnson1/ChrispyWebsite</p>
@@ -404,7 +407,7 @@ function App() {
               <div id = 'EP-viewer'>  {/* This will be filled by the EventViewer on the EP-items */}
                 <button id = 'EP-close-button'>✕</button>
                 <p id = 'EP-viewer-placeholder'>
-                  Interact with an item for more information!
+                  Interact with an item to see more information!
                 </p>
               </div>
             </div>
@@ -414,7 +417,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = ''>
+                  <a href = 'https://drive.google.com/file/d/1p0bKEndielhuvwphwNqBtRlHbPHnEHJU/view?usp=drive_link' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -453,9 +456,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.0</p>
+          <p>Version 1.1</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated June 2nd, 2024</p>
+          <p>Last updated June 3rd, 2024</p>
         </div>
     </div>
   );

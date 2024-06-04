@@ -45,7 +45,7 @@
 /* Defines the grid layout and visual styling of the site header */
 #site-header {
   display: grid;
-  grid-template-rows: minmax(90vh, max-content) minmax(min-content, 10vh);
+  grid-template-rows: minmax(85vh, max-content) minmax(max-content, 15vh);
   align-items: center;
   justify-content: center;
   background-color: var(--main-accent);
@@ -100,6 +100,7 @@
 #scroll-indicator {
   justify-content: center;
   margin: auto;
+  padding: 2em
 }
 
 /* Aligns the text within the container and styles the text */
@@ -282,6 +283,13 @@
 /* SKILLS & QUALIFICATIONS SECTION: */
 
 
+#SQ-caption {
+  text-align: center;
+  font-family: var(--segoe-ui-font);
+  font-weight: 400;
+  padding-bottom: 1em;
+}
+
 /* Defines the grid layout for the skills and qualifications */
 #skills-qualifs-grid {
   display: grid;
@@ -322,25 +330,10 @@
   padding: 0.66em 1em;
 }
 
-/* Styling for when the close button is hovered over by the mouse cursor */
-.skills-qualifications-card button:hover {
-  transform: scale(1.1);
-  color: red;
-  font-weight: 600;
-}
-
 /* Defines the layout for the SQ card close button */
 .skills-qualifications-card.featured button {
   display: block;
   cursor: pointer;
-}
-
-/* Hover styling for the non-featured SQ cards */
-.skills-qualifications-card:not(.featured):hover {
-  transform: scale(1.033);
-  cursor: pointer;
-  background-color: var(--main-accent);
-  transition: all 200ms ease-in-out;
 }
 
 /* Forces the featured SQ card to the top of the grid and applies styling*/
@@ -418,19 +411,6 @@
   font-weight: 600;
 }
 
-/* EP items not currently featured will have a hover effect */
-.EP-item:not(.featured):hover {
-  transform: scale(1.033);
-  cursor: pointer;
-  transition: all 100ms ease-in-out;
-  background-color: var(--main-accent);
-}
-
-/* Featured EP items have a default cursor */
-.EP-item.featured:hover {
-  cursor: default;
-}
-
 /* Defines the styling for the EP card headers */
 .EP-item h1 {
   text-align: center;
@@ -457,8 +437,8 @@
 
 /* Defines the layout for the Experience and Project viewer section */
 #EP-viewer {
-  background-color: var(--grey-accent);
-  border: 2px solid #1f1f1f;
+  background-color: #2c2c2c;
+  border: 2px solid #8d8b8b;
   border-radius: 18px;
   padding: 30px;
   align-content: center;
@@ -491,13 +471,6 @@
   color: white;
   font-size: 20pt;
   padding: 0.5em 0.75em;
-}
-
-/* Defines hover styling for the EP viewer close button */
-#EP-viewer button:hover {
-  transform: scale(1.1);
-  color: red;
-  font-weight: 600;
 }
 
 /* Removes link styling from the a-tag within the EP viewer */
@@ -549,13 +522,6 @@
   height: auto;
   margin: auto;
   padding: 0px 0.8em 0px 0px;
-}
-
-/* Adds a GitHub themed hover effect to the repository button */
-.repo-button:hover {
-  box-shadow: 1px 2px rgba(45,186,78, 0.7);
-  transition: all 250ms ease-in-out;
-  border: 2px solid #24292e;
 }
 
 
@@ -611,13 +577,6 @@
   font-style: normal;
 }
 
-/* Adds a hover effect to the resume download button */
-#resume-download-button:hover {
-  transform: scale(1.005);
-  box-shadow: 1px 2px #05afff;
-  transition: all 250ms ease-in-out;
-}
-
 /* Centers and sets the size of the download icon within the resume download button */
 #download-icon {
   width: 20pt;
@@ -664,34 +623,17 @@
   background-color: #0a66c2;
 }
 
-/* Adds a LinkedIn-themed hover effect to the LinkedIn button */
-#linkedin:hover {
-  box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
-  transition: all 250ms ease-in-out;
-}
-
 /* Defines the visual styling for the GitHub button */
 #github {
   color: #fafbfc;
   background-color: #24292e;
 }
 
-/* Adds a GitHub-themed hover effect to the GitHub button */
-#github:hover {
-  box-shadow: 1px 2px rgba(45,186,78, 0.7);
-  transition: all 250ms ease-in-out;
-}
 
 /* Defines the visual styling for the Twitter button */
 #twitter {
   color: white;
   background-color: #1DA1F2;
-}
-
-/* Adds a Twitter-themed hover effect to the Twitter button */
-#twitter:hover {
-  box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
-  transition: all 250ms ease-in-out;
 }
 
 
@@ -715,12 +657,86 @@
 
 
 
+/* Restricting hover styling to devices with hover capabilities */
+@media (hover: hover) {
+  /* Styling for when the close button is hovered over by the mouse cursor */
+  .skills-qualifications-card button:hover {
+    transform: scale(1.1);
+    color: red;
+    font-weight: 600;
+  }
+
+  /* Hover styling for the non-featured SQ cards */
+  .skills-qualifications-card:not(.featured):hover {
+    transform: scale(1.033);
+    cursor: pointer;
+    background-color: var(--main-accent);
+    transition: all 200ms ease-in-out;
+  }
+
+  /* EP items not currently featured will have a hover effect */
+  .EP-item:not(.featured):hover {
+    transform: scale(1.033);
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    background-color: var(--main-accent);
+  }
+
+  /* Featured EP items have a default cursor */
+  .EP-item.featured:hover {
+    cursor: default;
+  }
+
+  /* Defines hover styling for the EP viewer close button */
+  #EP-viewer button:hover {
+    transform: scale(1.1);
+    color: red;
+    font-weight: 600;
+  }
+
+  /* Adds a GitHub themed hover effect to the repository button */
+  .repo-button:hover {
+    box-shadow: 1px 2px rgba(45,186,78, 0.7);
+    transition: all 250ms ease-in-out;
+    border: 2px solid #24292e;
+  }
+
+  /* Adds a hover effect to the resume download button */
+  #resume-download-button:hover {
+    transform: scale(1.005);
+    box-shadow: 1px 2px #05afff;
+    transition: all 250ms ease-in-out;
+  }
+
+  /* Adds a LinkedIn-themed hover effect to the LinkedIn button */
+  #linkedin:hover {
+    box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
+    transition: all 250ms ease-in-out;
+  }
+
+
+  /* Adds a GitHub-themed hover effect to the GitHub button */
+  #github:hover {
+    box-shadow: 1px 2px rgba(45,186,78, 0.7);
+    transition: all 250ms ease-in-out;
+  }
+
+  /* Adds a Twitter-themed hover effect to the Twitter button */
+  #twitter:hover {
+    box-shadow: 1px 2px rgba(256, 256, 256, 0.7);
+    transition: all 250ms ease-in-out;
+  }
+}
+
+
+
+
 
 /* RESPONSIVE STYLING USING @media BREAKPOINTS: ------------------------------*/
 /* source: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 
 /* Smallest devices */
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
 
   /* HEADER STYLING: */
   #hero-title {
@@ -849,6 +865,10 @@
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
+  #SQ-caption {
+    font-size: 4.5vw;
+  }
+
   #skills-qualifs-grid {
     max-width: 90%;
     align-content: center;
@@ -978,7 +998,7 @@
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (min-width: 451px) {  
+@media only screen and (min-width: 501px) {  
 
   /* HEADER STYLING: */
   #hero-title {
@@ -1065,6 +1085,10 @@
 
 
   /* STRENGTHS SECTION: */
+  #SQ-caption {
+    font-size: 1.35em;
+  }
+
   #strengths-grid {
     grid-template-columns: none;
     grid-template-rows: auto auto auto;
@@ -1103,7 +1127,7 @@
   }
 
   .location-caption p {
-    font-size: 12pt;
+    font-size: 16pt;
   }
 
 
@@ -1123,8 +1147,8 @@
 
   .SQContent {
     margin: 0px 0.5em;
+    font-size: 16pt;
   }
-
 
   /* EXPERIENCE & PROJECTS SECTION: */
   #EP-grid {
@@ -1163,11 +1187,11 @@
   }
 
   #EP-viewer-body p {
-    font-size: 14pt;
+    font-size: 16pt;
   }
   
   #EP-viewer-body li {
-    font-size: 14pt;
+    font-size: 16pt;
   }
 
 
@@ -1218,6 +1242,7 @@
   #hero-tags {
     display: block;
     margin-top: 4em;
+    /* margin-bottom: 4em; */
   }
 
   #hero-tags p {
@@ -1295,10 +1320,6 @@
     max-width: 77vw;
   }
 
-  .location-caption p {
-    font-size: 14pt;
-  }
-
 
   /* SKILLS & QUALIFICATIONS SECTION: */
 
@@ -1359,24 +1380,12 @@
 
 
   /* LOCATION SECTION: */
-  .location-caption p {
-    font-size: 15pt;
-  }
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
-  .skills-qualifications-card.featured {
-    order: -1;
-    grid-column: 1 / -1;
-  }
-
   .skills-qualifications-card.featured h1 {
     width: 80%;
     font-size: 18pt;
-  }
-
-  .SQContent {
-    font-size: 16pt;
   }
 
 
@@ -1471,12 +1480,25 @@
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
+  #SQ-caption {
+    font-size: 18pt;
+  }
+
   #skills-qualifs-grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/2)), 1fr));
   }
 
   .skills-qualifications-card {
     padding: 50px 25px;
+  }
+
+  .skills-qualifications-card h1 {
+    font-size: 20pt;
+  }
+
+  .skills-qualifications-card.featured {
+    order: -1;
+    grid-column: 1 / -1;
   }
 
   .skills-qualifications-card.featured div {
@@ -1487,10 +1509,6 @@
   .skills-qualifications-card.featured h1 {
     width: auto;
     font-size: 22pt;
-  }
-
-  .SQContent {
-
   }
 
 
@@ -1642,6 +1660,10 @@
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
+  #SQ-caption {
+    font-size: 19pt;
+  }
+
   #skills-qualifs-grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, max(10rem, 100%/3)), 1fr));
     max-width: 70vw;
@@ -1789,6 +1811,10 @@
 
 
   /* SKILLS & QUALIFICATIONS SECTION: */
+  #SQ-caption {
+    font-size: 23pt;
+  }
+
   #skills-qualifs-grid {
     max-width: 60vw;
   }
@@ -1897,4 +1923,13 @@
 
   /* SITE FOOTER: */
 
+}
+
+/* Disable bouncing scroll indicator under certain viewport constraints */
+@media only screen and (min-width: 750px) and (max-width: 1050px) and (max-height: 800px),
+       only screen and (min-width: 320px) and (max-width: 749px) and (max-height: 650px),
+       only screen and (max-width: 319px) and (max-height: 398px) {
+  .scroll-indicator-animation {
+    animation: none;
+  }
 }
