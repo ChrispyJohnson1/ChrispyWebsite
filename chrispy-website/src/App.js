@@ -193,7 +193,7 @@ function App() {
               <ImageStack></ImageStack>
               <div id = 'who-captions'>
                 <div id = 'who-1' className = 'who-caption'>
-                  <p>I am a 21 year old Computer Science Graduate from Ontario Tech University, that is very passionate about technology and IT.</p>
+                  <p>I am a 22 year old Computer Science Graduate from Ontario Tech University, that is very passionate about technology and IT.</p>
                 </div>
 
                 <div id = 'who-2'  className = 'who-caption'>
@@ -417,7 +417,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = 'https://drive.google.com/file/d/13cJYzLsSFRI7dvBmzOI0ET8M5nNdBE7X/view?usp=sharing' target='blank'>
+                  <a href = 'https://drive.google.com/file/d/1pvV7Lnkw7L9_ADFr1WvpKEmcbkbDAf5y/view?usp=sharing' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -456,9 +456,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.1.1</p>
+          <p>Version 1.1.2</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated June 7th, 2024</p>
+          <p>Last updated June 11th, 2024</p>
         </div>
     </div>
   );
