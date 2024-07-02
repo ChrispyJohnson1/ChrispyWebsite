@@ -345,7 +345,7 @@ function App() {
                   <div className = 'SQContent'>
                     <p>I have extensive experience with Windows, from basic configuration like configuring networks, updating drivers, installing software etc., to more advanced troubleshooting techniques like using the Windows Event Viewer or Task Scheduler.</p>
 
-                    <p>I also have experience with Linux, and I'm able to use it to a reasonable effectiveness.</p>
+                    <p>I also have experience with Linux and macOS, and I'm able to use both to a reasonable effectiveness.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -417,7 +417,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = 'https://drive.google.com/file/d/1pvV7Lnkw7L9_ADFr1WvpKEmcbkbDAf5y/view?usp=sharing' target='blank'>
+                  <a href = 'https://drive.google.com/file/d/1Cf8VJsoKm4mjklc67eyISOtE8hYKXytk/view?usp=drive_link' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -456,9 +456,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.1.2</p>
+          <p>Version 1.1.3</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated June 11th, 2024</p>
+          <p>Last updated July 2nd, 2024</p>
         </div>
     </div>
   );
