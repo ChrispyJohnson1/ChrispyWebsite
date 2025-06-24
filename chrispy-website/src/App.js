@@ -417,7 +417,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = 'https://drive.google.com/file/d/1lxhWgMayt0LctZ0N5nxHW-Xx92pUzYDv/view?usp=drive_link' target='blank'>
+                  <a href = 'https://drive.google.com/file/d/1-vYsVcIHFaWg2rrxdlFRqIoOn4j0_o54/view?usp=sharing' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -456,9 +456,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.1.4</p>
+          <p>Version 1.1.5</p>
           <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated August 11th, 2024</p>
+          <p>Last updated September 30th, 2024</p>
         </div>
     </div>
   );
