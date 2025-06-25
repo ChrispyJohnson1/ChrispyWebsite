@@ -173,11 +173,11 @@ function App() {
             </div>
             
             <div id = 'hero-tags'>
-              <p>Computer Science Graduate</p>
+              <p>BSc Computer Science</p>
               <p>•</p>
-              <p>Programmer</p>
+              <p>CompTIA A+ Certified</p>
               <p>•</p>
-              <p>IT Enthusiast</p>
+              <p>Tech Enthusiast</p>
             </div>
 
           </div>
@@ -219,16 +219,16 @@ function App() {
             <h1 className = 'section-header'>{'Strengths:'}</h1>
             <div id = 'strengths-grid'>
               <div className = 'strength-card'>
-                <h1>1. Tech Lover</h1>
-                <p>I'm very passionate about technology and I love working with it.</p>
+                <h1>1. CompTIA A+ Certified</h1>
+                <p>The CompTIA A+ certification is proof of my technical skills and knowledge, and my ability to utilize them.</p>
               </div>
               <div className = 'strength-card'>
-                <h1>2. Fast Learner</h1>
-                <p>Once I have experience with something, I can pick it up pretty quickly.</p>
+                <h1>2. Problem Solving</h1>
+                <p>The ability to solve problems quickly <i>and</i> accurately is of utmost importance in an IT role.</p>
               </div>
               <div className = 'strength-card'>
-                <h1>3. Well Organized</h1>
-                <p>University taught me to be very organized. I use calendars and reminders to stay on top of everything.</p>
+                <h1>3. Communication Skills</h1>
+                <p>My communication skills allow me to convey information in an clear, easy to understand way. This is crucial in an IT role where concise, logical documentation is critical.</p>
               </div>
             </div>
           </section>
@@ -236,10 +236,10 @@ function App() {
           <section id = 'location' className = 'custom-section'>
             <h1 className = 'section-header'>{'Location:'}</h1>
             <div id = 'location-grid'>
-              <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11550.973037096404!2d-80.04491806641845!3d43.632702318292566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b74ed72ea5b13%3A0x5c9e652ed5296bf!2sActon%2C%20ON!5e0!3m2!1sen!2sca!4v1715658853445!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
+              <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46248.276679679715!2d-79.65285371093826!3d43.574940452875296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b46e6f763d199%3A0xb8d1fa62c1027e43!2sCooksville%2C%20Mississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1750814616269!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
               <div id = 'location-captions'>
                 <div className = 'location-caption'>
-                  <p>I currently live in Acton, Ontario, which is a 20-25 minute drive from Guelph and Milton. However, I will be moving in the next 12 months.</p>
+                  <p>I currently live in Cooksville in Mississauga, Ontario. Being a centralized location in the Greater Toronto Area, this means that I am available to work in a wide area.</p>
                 </div>
 
                 <div className = 'location-caption'>
@@ -251,12 +251,12 @@ function App() {
 
           <section id = 'skills-qualifications' className = 'custom-section'>
             <h1 className = 'section-header'>{'Skills & Qualifications:'}</h1>
-            <p id = 'SQ-caption'>Click or tap on an item for more info</p>
+            <p id = 'SQ-caption'>Interact with an item for more information</p>
             <div id = 'skills-qualifs-grid'>
 
               <div className = 'skills-qualifications-card'>
                 <div>
-                  <h1><b>Qualification:</b> Bachelor of Science (CS)</h1>
+                  <h1><b>Qualification:</b> Bachelor of Science, Computer Science</h1>
                   <div className = 'SQContent'>
                     <p>I achieved a Bachelor of Science (Honors) in Computer Science from Ontario Tech University. My time in university gave me a greater understanding of a wide range of technologies, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                   </div>
@@ -266,9 +266,19 @@ function App() {
 
               <div className = 'skills-qualifications-card'>
                 <div>
+                  <h1><b>Qualification:</b> CompTIA A+ Certification</h1>
+                  <div className = 'SQContent'>
+                    <p>The CompTIA A+ certification taught me critical skills related to troubleshooting, system configuration, operating systems and much, much more. It has given me the necessary tools to build the foundation for a career in IT. </p>
+                  </div>
+                  <button className = 'SQ-close-button'>✕</button>
+                </div>
+              </div>
+
+              <div className = 'skills-qualifications-card'>
+                <div>
                   <h1><b>Skill:</b> Programming</h1>
                   <div className = 'SQContent'>
-                    I have experience in many different programming languages, such as: 
+                    <p>I have experience in many different programming languages, such as: </p>
                     <div id = 'programming-languages'>
                       <ul>
                         <li>C/C++</li>
@@ -417,7 +427,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = 'https://drive.google.com/file/d/1-vYsVcIHFaWg2rrxdlFRqIoOn4j0_o54/view?usp=sharing' target='blank'>
+                  <a href = 'https://drive.google.com/file/d/1KhKkyDr0sIpcFRrHFn3AtKfAQMKKXLMm/view?usp=sharing' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -456,9 +466,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.1.5</p>
-          <p>Designed and created by Christopher Johnson</p>
-          <p>Last updated September 30th, 2024</p>
+          <p>Version 1.2</p>
+          <p>Designed and programmed by Chris Johnson</p>
+          <p>Last updated June 24th, 2025</p>
         </div>
     </div>
   );
