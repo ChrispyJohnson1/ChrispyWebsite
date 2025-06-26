@@ -435,10 +435,10 @@
   background-color: var(--main-accent);
 }
 
-/* Defines the layout for the Experience and Project viewer section */
+/* Defines the layout for t he Experience and Project viewer section */
 #EP-viewer {
-  background-color: #2c2c2c;
-  border: 2px solid #8d8b8b;
+  background-color: #1c232c;
+  border: 2px solid #293442;
   border-radius: 18px;
   padding: 30px;
   align-content: center;
@@ -504,13 +504,13 @@
   justify-content: center;
   align-content: center;
   width: min-content;
-  background-color: #24292e;
+  background-color: #292e33;
   color: #fafbfc;
   border-radius: 10px;
   text-wrap: nowrap;
   padding: 8px 13px;
   margin: 35px auto 0px auto;
-  border: 2px solid #222327;
+  border: 2px solid #3c3d41;
   font-size: 15pt;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -524,6 +524,33 @@
   padding: 0px 0.8em 0px 0px;
 }
 
+/* Defines visual styling and layout for the Google Drive button, which appears 
+   when the link and link title are included in the EP item card. */
+.google-drive-button {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  align-content: center;
+  width: min-content;
+  background-color: #1b4a9f;
+  color: #fafbfc;
+  border-radius: 10px;
+  text-wrap: nowrap;
+  padding: 8px 13px;
+  margin: 35px auto 0px auto;
+  border: 2px solid #4582e4;
+  font-size: 15pt;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Defines the layout for the image within the Google Drive button */
+.google-drive-button img {
+  width: 15pt;
+  height: auto;
+  margin: auto;
+  padding: 0px 0.8em 0px 0px;
+}
 
 
 /* RESUME & SOCIALS SECTION: */
@@ -630,10 +657,10 @@
 }
 
 
-/* Defines the visual styling for the Twitter button */
-#twitter {
+/* Defines the visual styling for the Bluesky button */
+#bluesky {
   color: white;
-  background-color: #1DA1F2;
+  background-color: #1185FE;
 }
 
 
@@ -699,6 +726,13 @@
     box-shadow: 1px 2px rgba(45,186,78, 0.7);
     transition: all 250ms ease-in-out;
     border: 2px solid #24292e;
+  }
+
+  /* Adds a Google Drive themed hover effect to the drive button */
+  .google-drive-button:hover {
+    box-shadow: 1px 2px rgba(255, 208, 75, 0.7);
+    transition: all 250ms ease-in-out;
+    border: 2px solid #1b4a9f;
   }
 
   /* Adds a hover effect to the resume download button */

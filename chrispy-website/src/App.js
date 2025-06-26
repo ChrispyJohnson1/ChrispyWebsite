@@ -3,9 +3,10 @@ import ImageStack from './components/ImageStack';
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import GitHubIcon from './resources/github-mark-white.png'
+import GoogleDriveIcon from './resources/google-drive-mark.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faBluesky, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 function App() {
   // IntersectionObserver for the bouncing scroll indicator in the "hero" section
@@ -83,6 +84,8 @@ function App() {
         var EPItem_h1 = event.currentTarget.querySelector('h1').textContent            /* header element */
         var EPItem_body_items = event.currentTarget.querySelector('.EP-item-body').childNodes  /* elements */
         
+        // Used if the link is a GitHub repository:
+
         /* project repo text */
         var project_repo_text;
         event.currentTarget.querySelector('.PRT') != null ? project_repo_text = event.currentTarget.querySelector('.PRT').textContent : project_repo_text = null;
@@ -90,6 +93,16 @@ function App() {
         /* project repo link */
         var project_repo_link;
         event.currentTarget.querySelector('.PRL') != null ? project_repo_link = event.currentTarget.querySelector('.PRL').textContent : project_repo_link = null;
+
+        // Used if the link is a Google Drive file:
+        
+        /* post link text */
+        var post_link_text;
+        event.currentTarget.querySelector('.PLT') != null ? post_link_text = event.currentTarget.querySelector('.PLT').textContent : post_link_text = null;
+
+        /* post drive link */
+        var post_drive_link;
+        event.currentTarget.querySelector('.PDL') != null ? post_drive_link = event.currentTarget.querySelector('.PDL').textContent : post_drive_link = null;
 
         // removed "featured" class from all EP-items
         EPItems.forEach((EPItem) => {
@@ -100,10 +113,12 @@ function App() {
         var EPItem_id = event.currentTarget.getAttribute('id')
         $('#' + EPItem_id).addClass('featured')
         
-        // remove the title, text, and repo button from EP-viewer if they exist
+        // remove the title, text, repo and drive button from EP-viewer if they exist
         $('#EP-viewer-title').remove();
         $('#EP-viewer-body').remove();
         $('.repo-button').remove();
+        $('.google-drive-button').remove();
+
 
         // hide the placeholder
         $('#EP-viewer-placeholder').attr('class', 'hide-EPV-placeholder');
@@ -120,10 +135,16 @@ function App() {
           $('#EP-viewer-body').append(EPItem_body_item.cloneNode(true))
         });
 
-        // if the text and link are included in the EP-item, render a link to the repository
+        // if the repo text and link are included in the EP-item, render a link to the repository
         // in the EP-viewer
         if (project_repo_text != null && project_repo_link != null) {
           $('#EP-viewer-body').append("<a href = '" + project_repo_link + "'><div class = 'repo-button'><img src = '" + GitHubIcon + "' alt = 'The GitHub logo.'>" + project_repo_text + "</div></a>");
+        }
+
+        // alternatively, if the google drive text and link are included in the EP-item, render a button for the link
+        // in the EP-viewer
+        if (post_link_text != null && post_drive_link != null) {
+          $('#EP-viewer-body').append("<a href = '" + post_drive_link + "'><div class = 'google-drive-button'><img src = '" + GoogleDriveIcon + "' alt = 'The GitHub logo.'>" + post_link_text + "</div></a>");
         }
 
         // make the close button visible
@@ -192,25 +213,25 @@ function App() {
             <div id = 'who-container'>
               <ImageStack></ImageStack>
               <div id = 'who-captions'>
-                <div id = 'who-1' className = 'who-caption'>
-                  <p>I am a 22 year old Computer Science Graduate from Ontario Tech University, that is very passionate about technology and IT.</p>
+              <div id = 'who-1' className = 'who-caption'>
+                  <p>I am recent Computer Science Graduate from Ontario Tech University, with a CompTIA A+ certification, that is very passionate about technology and IT.</p>
                 </div>
 
                 <div id = 'who-2'  className = 'who-caption'>
-                  <p>Ever since I was a kid, I have always loved technology. My dad would bring home old computers that I would spend hours tinkering with and trying to fix.</p>
+                  <p>My lifelong passion for technology and my natural curiosity towards technical topics has pushed me towards my greatest achievements.</p>
                 </div>
 
                 <div id = 'who-3'  className = 'who-caption'>
-                  <p>That means I have experience building computers, as well as maintaining them. I am capable of replacing broken components or upgrading computers whenever needed.</p>
+                  <p>I've created numerous programs with a variety of programming languages, built computers from scratch, and reconfigured Windows more times than I can count.</p>
                 </div>
 
                 <div id = 'who-4'  className = 'who-caption'>
-                  <p>Along with my love for technology, I also love helping people — especially with their tech problems. Answering questions about tech, and helping people solve their tech issues is one of my favourite things to do.</p>
+                  <p>Along with my love for technology, I also love helping people — especially with their technology problems. Answering questions, and helping people solve their tech issues, is one of my favourite things to do.</p>
                 </div>
-
+{/* 
                 <div id='who-5' className = 'who-caption'>
                   <p></p>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
@@ -228,7 +249,7 @@ function App() {
               </div>
               <div className = 'strength-card'>
                 <h1>3. Communication Skills</h1>
-                <p>My communication skills allow me to convey information in an clear, easy to understand way. This is crucial in an IT role where concise, logical documentation is critical.</p>
+                <p>My communication skills allow me to convey information in an clear, easy to understand way. This is crucial in an IT role where writing concise, logical documentation is vital.</p>
               </div>
             </div>
           </section>
@@ -239,11 +260,11 @@ function App() {
               <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46248.276679679715!2d-79.65285371093826!3d43.574940452875296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b46e6f763d199%3A0xb8d1fa62c1027e43!2sCooksville%2C%20Mississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1750814616269!5m2!1sen!2sca' title='Acton Map' allowFullScreen='' loading='lazy' referrerPolicy='no-referrer-when-downgrade'></iframe>
               <div id = 'location-captions'>
                 <div className = 'location-caption'>
-                  <p>I currently live in Cooksville in Mississauga, Ontario. Being a centralized location in the Greater Toronto Area, this means that I am available to work in a wide area.</p>
+                  <p>I live in Cooksville in Mississauga, Ontario, which is central within the Greater Toronto Area. This means that I am available to work in a wide range of locations.</p>
                 </div>
 
                 <div className = 'location-caption'>
-                  <p>I have my G licence, a car, and I'm willing to drive long distances if needed. I am also comfortable with driving as a part of work duties.</p>
+                  <p>I have my G licence, a car, and am willing to drive long distances if needed. I am also comfortable with driving as a part of work duties.</p>
                 </div>
               </div>
             </div>
@@ -258,7 +279,7 @@ function App() {
                 <div>
                   <h1><b>Qualification:</b> Bachelor of Science, Computer Science</h1>
                   <div className = 'SQContent'>
-                    <p>I achieved a Bachelor of Science (Honors) in Computer Science from Ontario Tech University. My time in university gave me a greater understanding of a wide range of technologies, from programming languages to network architectures. It also gave me a lot of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
+                    <p>I achieved a Bachelor of Science (Honors) in Computer Science from Ontario Tech University. My time in university gave me a greater understanding of a wide range of technologies, from programming languages to network architectures. It also gave me a tremendous amount of experience working on a team, and taught me how to properly manage my time. Most importantly, it taught me how to learn.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -341,9 +362,9 @@ function App() {
                 <div>
                   <h1><b>Skill:</b> Teamwork and Leadership</h1>
                   <div className = 'SQContent'>
-                    <p>I have experience working with and leading teams in various projects. In university, I was often the one to take the leadership role and coordinate teams to meet deadlines and work together in an organized and productive way.</p>
+                    <p>I have experience working as a member of a team during various projects. In university, I was often the one to take the leadership role and coordinate to meet deadlines and work together in an organized and productive way.</p>
 
-                    <p>It is my intention to bring those same team-oriented and leadership qualities to any position I hold.</p>
+                    <p>I intend to bring those same team-oriented and leadership qualities to any position I hold.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -355,7 +376,7 @@ function App() {
                   <div className = 'SQContent'>
                     <p>I have extensive experience with Windows, from basic configuration like configuring networks, updating drivers, installing software etc., to more advanced troubleshooting techniques like using the Windows Event Viewer or Task Scheduler.</p>
 
-                    <p>I also have experience with Linux and macOS, and I'm able to use both to a reasonable effectiveness.</p>
+                    <p>I am also proficient with macOS, having used a Mac on a daily basis for over a year. Additionally, I am well-versed with Linux, being particularly familiar with it's command-line interface.</p>
                   </div>
                   <button className = 'SQ-close-button'>✕</button>
                 </div>
@@ -377,26 +398,26 @@ function App() {
             <h1 className = 'section-header'>{'Projects & Experience:'}</h1>
             <div id = 'EP-grid'>
               <div id = 'EP-list'>
-                <div className = 'EP-item' id = 'work-experience'>
-                  <h1>Work Experience</h1>
-                  <div className = 'EP-item-body'>
-                    <p>I have some work experience from a summer job I held between university semesters. While this experience may not be fully applicable to the position I'm applying for, I feel that it has prepared me in three key ways:</p>
-                    <ul>
-                      <li><b>Accountability</b>: it helped me learn to be accountable for my work, and take responsibility for my successes <b>and</b> my failures.</li>
-                      <li><b>Teamwork</b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
-                      <li><b>Preparedness</b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment.</li>
-                    </ul>
-                  </div>
+                <div className = 'EP-item' id = 'home-nas'>
+                    <h1>Home NAS</h1>
+                    <div className = 'EP-item-body'>
+                      <p>Creator of a custom Network Attached Storage (NAS) device using the TrueNAS Core operating system. This allows easy storage and access of files over the local area network using a network sharing protocol (such as SMB). The device was created by modifying an old workstation to meet the requirements of this application. This project highlights my ability to configure systems for a specific task, while being mindful of cost. It also shows my skills with operating systems and networking.</p>
+                    </div>
+                </div>
+
+                <div className = 'EP-item' id = 'SOHO-guide'>
+                    <h1>Network Setup Guide</h1>
+                    <div className = 'EP-item-body'>
+                      <p>Authored a comprehensive guide detailing the fundamentals of network configuration for a small/home office. It provides guidance on the necessary configuration steps, such as changing the default router passwords and configuring the wireless connectivity, and describing more advanced settings to check. This article demonstrates my networking knowledge and my ability to clearly communicate technical information.</p>
+                    </div>
+                    <p className = 'PLT'>Network Setup Guide</p>
+                    <p className = 'PDL'>https://drive.google.com/file/d/1tmAxR9fiYUUjx71WCxPXsJoSb8zl-bDw/view?usp=drive_link</p>
                 </div>
 
                 <div className = 'EP-item' id = 'chrispywebsite'>
                   <h1>Personal Website</h1>
                   <div className = 'EP-item-body'>
-                    <p>The website you're reading was programmed entirely by <b>me</b> —  with help from the internet, of course.</p>
-
-                    <p> I thought that, instead of <i>just</i> handing in a PDF resume, or using a website template, I should create my own. And this is the first site that I've ever made, besides a few smaller school projects.</p>
-
-                    <p>I figured this would be a good showcase of my programming skills, as well as my ability to problem solve.</p>
+                    <p>Creator of a website programmed using the React JavaScript library, that holds information about me, my abilities, accomplishments, and experience. Showcases my programming skills, as well as my ability to discover unique solutions to problems.</p>
 
                     <p>If you want to view the source code, it's available in the GitHub repository linked below.</p>
                   </div>
@@ -404,6 +425,38 @@ function App() {
                   <p className = 'PRL'>https://github.com/ChrispyJohnson1/ChrispyWebsite</p>
                 </div>
 
+                <div className = 'EP-item' id = 'data-vis-report'>
+                  <h1>Data Visualization Assignment</h1>
+                  <div className = 'EP-item-body'>
+                    <p>Authored a report analyzing global energy production, including visualizations created entirely with the R programming language. Accompanying these visualizations are conclusions drawn about the state of the global energy environment. In the report, there are a variety of visualizations, each highlighting a different aspect of energy production (such as the share of global energy production for each country, the composition of the energy produced over time, and the percentage of renewable energy produced per country). This highlights my ability to create visualizations from raw data, as well as my capacity to draw meaningful conclusions from those visualizations.</p>
+                  </div>
+                  <p className = 'PLT'>Data Visualization Assignment</p>
+                  <p className = 'PDL'>https://drive.google.com/file/d/16PxvTPPQ-k3Mh8pu-4F_DPQ04jl_CKnG/view?usp=drive_link</p>
+                </div>
+                
+
+                <div className = 'EP-item' id = 'custom-compiler'>
+                    <h1>Custom Compiler</h1>
+                    <div className = 'EP-item-body'>
+                      <p>Co-creator of a custom compiler language (using ANTLR & Kotlin) that supports complex data types and structures, conditional statements, loops, and other essential programming constructs. It was intentionally designed for easy expansion to support more complex features.</p>
+                      <p>You can view the source code for the project using the link below.</p>
+                    </div>
+                    <p className = 'PRT'>Custom Compiler GitHub</p>
+                    <p className = 'PRL'>https://github.com/ScholarChrispy/CompilersFP</p>
+                </div>
+
+                <div className = 'EP-item' id = 'work-experience'>
+                  <h1>Work Experience</h1>
+                  <div className = 'EP-item-body'>
+                    {/* <p>I have some work experience from a summer job I held between university semesters. While this experience isn't directly related to IT, I feel that it has prepared me in three key ways:</p> */}
+                    <p>My only job experience was gained from a position I held between university semesters, as well as after graduation. While this job wasn't IT related, it did teach me some fundamental skills applicable to any workplace:</p>
+                    <ul>
+                      <li><b>Accountability</b>: it helped me learn to be accountable for my work, and take responsibility for my successes <b>and</b> my failures.</li>
+                      <li><b>Teamwork</b>: it taught me how to work on a team in a real-world environment, with real-world consequences.</li>
+                      <li><b>Preparedness</b>: it allowed me to better understand the meaning of preparedness, and how that applies to a working environment.</li>
+                    </ul>
+                  </div>
+                </div>
                 {
                   /* Template: */
                   /* <div className = 'EP-item' id = ''>
@@ -427,7 +480,7 @@ function App() {
             <div id = 'resume-container'>
                 <div className = 'resume-section' id = 'resume-link'>
                   <h1>Download my resume here:</h1>
-                  <a href = 'https://drive.google.com/file/d/1KhKkyDr0sIpcFRrHFn3AtKfAQMKKXLMm/view?usp=sharing' target='blank'>
+                  <a href = 'https://drive.google.com/file/d/1r9nBWxVLKQsz2htH_xoHGr_NBIouRF40/view?usp=drive_link' target='blank'>
                     <div id = 'resume-download-button'>
                       <FontAwesomeIcon icon = {faDownload} id = 'download-icon' />   {/* Download Icon */}
                       Download
@@ -453,11 +506,11 @@ function App() {
                       </div>
                     </a>
 
-                    {/* Twitter Link */}
-                    <a href = 'https://twitter.com/chrispyjohnson_'>
-                      <div className = 'social-button' id = 'twitter'>
-                        <FontAwesomeIcon icon={faTwitter} className = 'social-icon' />  {/* Twitter Icon */}
-                        Twitter
+                    {/* Bluesky Link */}
+                    <a href = 'https://bsky.app/profile/chrispyjohnson.bsky.social'>
+                      <div className = 'social-button' id = 'bluesky'>
+                        <FontAwesomeIcon icon={faBluesky} className = 'social-icon' />  {/* Twitter Icon */}
+                        Bluesky
                       </div>
                     </a>
                   </div>
@@ -466,9 +519,9 @@ function App() {
           </section>
         </div>
         <div id = 'site-footer'>                                                { /* Site Footer */ }
-          <p>Version 1.2</p>
-          <p>Designed and programmed by Chris Johnson</p>
-          <p>Last updated June 24th, 2025</p>
+          <p>Version 2.0</p>
+          <p>Designed and programmed by Christopher Johnson</p>
+          <p>Last updated June 25th, 2025</p>
         </div>
     </div>
   );
